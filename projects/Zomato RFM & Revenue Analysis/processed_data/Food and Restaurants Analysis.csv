@@ -1,0 +1,11 @@
+top_restaurants,restaurant_id,cuisine,city,rating,number_of_reviews
+1,167,Mughlai,Hyderabad,5,8546
+2,266,"North Indian",Hyderabad,5,6309
+3,60,Mughlai,Hyderabad,4.9,9798
+4,106,Mughlai,Delhi,4.9,5583
+5,203,Biryani,Hyderabad,4.9,8217
+6,216,"North Indian",Kolkata,4.9,8611
+7,219,"Street Food",Chennai,4.9,8609
+8,246,Biryani,Mumbai,4.9,8656
+9,56,"South Indian",Bangalore,4.8,6132
+10,87,Continental,Hyderabad,4.8,8226

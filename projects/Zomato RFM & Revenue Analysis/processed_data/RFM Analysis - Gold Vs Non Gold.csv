@@ -1,0 +1,7 @@
+rfm_segment,gold_member,no_of_customers,avg_AOV,avg_total_spend,total_revenue_by_segment,pct_revenue_within_segment,pct_revenue_of_company
+Champions,No,595,763.32,4178.75,2486355,80.61,24.69
+Champions,Yes,142,755.16,4211.81,598077,19.39,5.94
+"Loyal Customers",No,2519,665.56,1957.68,4931392,81.16,48.97
+"Loyal Customers",Yes,584,654.66,1959.91,1144588,18.84,11.37
+"Potential Loyalists",No,725,630.14,1010.09,732316,80.48,7.27
+"Potential Loyalists",Yes,178,631.80,998.16,177672,19.52,1.76

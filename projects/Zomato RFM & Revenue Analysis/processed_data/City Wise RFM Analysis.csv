@@ -1,0 +1,19 @@
+rfm_segment,city,no_of_customers,avg_AOV,avg_total_spend,total_revenue_by_segment_city,pct_revenue_within_segment,pct_revenue_of_company
+Champions,Kolkata,138,747.21,4121.57,568777,18.33,5.65
+Champions,Delhi,130,748.28,4228.76,549739,17.72,5.46
+Champions,Chennai,128,766.5,4124.16,527892,17.01,5.24
+Champions,Hyderabad,125,782.56,4172.26,521532,16.81,5.18
+Champions,Bangalore,113,773.93,4195.34,474073,15.28,4.71
+Champions,Mumbai,108,751.28,4264.46,460562,14.84,4.57
+Loyal Customers,Hyderabad,554,650.18,1925.12,1066515,17.58,10.59
+Loyal Customers,Delhi,528,669.77,1985.6,1048398,17.29,10.41
+Loyal Customers,Kolkata,535,655.33,1922.75,1028671,16.96,10.21
+Loyal Customers,Chennai,497,666.55,2023.13,1005494,16.58,9.98
+Loyal Customers,Mumbai,497,680.88,1957.2,972730,16.04,9.66
+Loyal Customers,Bangalore,491,658.79,1920.8,943114,15.55,9.37
+Potential Loyalists,Chennai,155,662.56,1048.25,162479,18,1.61
+Potential Loyalists,Hyderabad,156,636.71,977.95,152560,16.9,1.51
+Potential Loyalists,Kolkata,150,629.84,1003.4,150510,16.67,1.49
+Potential Loyalists,Delhi,153,630.03,983.05,150407,16.66,1.49
+Potential Loyalists,Mumbai,145,617.85,1005.59,145810,16.15,1.45
+Potential Loyalists,Bangalore,140,604.35,1008.12,141137,15.63,1.4

@@ -1,0 +1,2 @@
+homepage_sessions,search_sessions,pct_home_to_search_sessions,restaurants_sessions,pct_search_to_restaurants_sessions,menu_sessions,pct_restaurants_to_menu_sessions,cart_sessions,pct_menu_to_cart_sessions,placed_orders,pct_cart_to_order_sessions,cart_abandonment_rate
+20000,19500,97.5,19500,100,18240,93.54,17000,93.2,14933,87.84,12.16

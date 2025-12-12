@@ -1,0 +1,3 @@
+Membership_status,no_of_completed_orders,no_of_cancelled_orders,no_of_items_per_order,cancellation_rate,orderitems_per_cancelled_order
+"GOLD MEMBER",2874,3,2.96,0.35,3.50
+"NON GOLD MEMBER",12059,39,2.99,0.47,3.60
