@@ -240,29 +240,28 @@ Post–Food Rescue implementation, the cancellation rate dropped sharply from **
 
 **Marketing & Growth**
 
-- Prioritise mobile‑led campaigns and app‑first experiences; reduce investment in lower‑performing desktop/tablet inventory.
-- Use social channels to drive acquisition, but push users towards higher‑value direct and app journeys over time.
-- Build segment‑specific strategies:
-  - Champions: premium benefits, exclusive experiences, and personalised milestones.
-  - Loyal Customers: AOV‑linked incentives, wallet‑based cashback, and repeat‑order nudges.
-  - Potential Loyalists: gamified missions, streaks, and targeted offers to increase frequency.
+i) **Strengthen a mobile-first strategy and reduce desktop focus:**
+Mobile contributes the majority of sessions, orders, and revenue, with high conversion rates of around 74–76% and ARPU of about ₹172. This confirms that Zomato’s growth and monetisation depend primarily on mobile users. The company should invest more in mobile UX improvements, app-only campaigns, and web-to-app conversion offers. Desktop and tablet platforms show lower traffic and revenue and can be deprioritised.
+
+ii) **Use channels differently for growth and revenue**
+Direct App traffic and Google are the highest revenue sources, generating around ₹40.2 lakh and ₹20.1 lakh GMV and over 8,000 orders combined. This shows strong brand recall and habitual usage. Social channels such as Facebook and Instagram drive high traffic and order volume but lower AOV (₹227–239 compared to ₹233–238 for Direct). These channels should be used mainly for acquisition and app installs, while Direct App traffic should be optimised for higher basket size and repeat usage.
+
+iii) **Build segment‑specific strategies:**
+- Loyal Customers account for about 65% of users and contribute around 60% of total revenue, making them the most important segment for cash flow. Efforts should focus on increasing value from this group through wallet cashbacks, repeat incentives, and higher AOV nudges rather than heavy acquisition discounts.
+- Champions, though only about 15.5% of users, contribute nearly 30% of revenue and need personalised, premium experiences to retain their high lifetime value.
+- Potential Loyalists should be reached out to through gamified missions, streaks, and targeted offers to increase frequency of purchases and move up the loyalty tiers.
 
 **Product & UX**
 
-- Keep the existing funnel structure but improve price and discount clarity at cart and checkout.
-- Surface “best offer” and savings explanations to reduce last‑minute drop‑offs.
-- Test breakfast‑focused homepage layouts and recommendations in underperforming morning slots.
+The funnel performs well from app entry to restaurant browsing, with high conversions in early stages,around **100% to 93.2%**. Drop-offs appear mainly at the menu, cart, and checkout stages. Since overall conversion remains strong, the issue is not UX design but decision-making at checkout. Zomato should focus on clearer pricing, better discount visibility, and final savings explanations to reduce last-minute exits caused by price comparison and offer search.
 
 **Membership & Monetisation**
 
-- Run experiments comparing Gold vs non‑Gold cohorts on AOV, frequency, and churn.
-- Expand Gold proposition beyond free delivery (tiered rewards, partner perks, exclusive events).
-- Target high‑spend non‑Gold users with personalised savings messages and limited‑time free Gold trials.
+Zomato should target high-spend non-Gold users with personalised nudges, free trial periods, and clear savings communication. Strengthening the Gold value proposition beyond free delivery can help improve long-term retention and customer lifetime value. Zomato should also look into offering higher-tier Gold Membership with additional benefits of greater incentives tier, free tickets for some movies or events in their city via District or offer some kind of Special Buffet Coupon on Anniversaries and Birthdays. Such rewards will motivate Champions, Loyal
 
-**Operations**
+**Apply city-specific strategies instead of one common approach:**
 
-- Continue investing in Food Rescue‑style features that convert cancellations into partial revenue and protect unit economics.
-- Use city‑level insights to tailor fee structures, SLAs, and restaurant onboarding priorities by market maturity.
+Bangalore and Hyderabad lead in GMV due to high order volumes and healthy AOV, indicating strong growth markets. Kolkata, Delhi and Chennai show higher AOV but flatter demand growth, suggesting more mature markets. Zomato should focus on scaling usage and retention in Bangalore and Hyderabad, while using premiumisation, curated offers, and experience-based strategies in Kolkata, Delhi and Chennai to increase value per user.
 
 ---
 
