@@ -3,7 +3,8 @@
 
 - [Project Overview](#1-project-overview)
 - [Business Objectives & Research Questions](#2-business-objectives--research-questions)
-- [Data Model & Schema](#3-data-model--schema)
+- [SQL Functions & Key Assumptions](#3-sql-functions-and-key-assumptions)
+- [Data Model & Schema](#4-data-model--schema)
 - [How to Run the SQL](#5-how-to-run-the-sql)
 - [Using Views and Processed Tables](#6-using-views-and-processed-tables)
 - [Key Insights (Business Summary)](#7-key-insights-business-summary)
@@ -16,9 +17,9 @@
 
 ## 1. Project Overview
 
-This project analyses a synthetic Zomato‑like food delivery dataset using pure SQL.
+This project analyses a synthetic Zomato food delivery dataset using SQL and Excel. The analysis covers aspects like RFM Analysis and RFM Modelling, Customer Journey & UX, Food and Order Demand Analytics to improve understanding and growth opportunities for Zomato.
 
-The focus is on:
+The focus of the project is:
 
 - How users move from sessions to orders across the app funnel
 - How revenue, cancellations, and refunds behave across cities and channels
@@ -48,7 +49,20 @@ The work is structured as a production‑style analytics project: data cleaning,
 
 ---
 
-## 3. Data Model & Schema
+## 3.  SQL Functions and Key Assumptions
+
+In this project, various SQL functions are utilized for finding answers to business queries. These include Common Table Expressions (CTEs), Window Functions, Temporary Tables, Views and Date - Time Functions.
+
+When calculating Revenue of Zomato, the following assumptions are taken for ensuring results and values are comparable:
+•  **Completed** : Zomato earns 30% commission + delivery_fee_paid.
+•  **Food Rescue**: Only delivery_fee_paid is retained (net-zero profit assumption as per Zomato’s Food Rescue model).
+•  **Cancelled and Not Rescued**: No revenue.
+
+**Calculation of Revenue Loss** :
+•	Cancelled non-rescued orders are treated as full loss of total_price + delivery_fee_paid.
+•	Completed and Food Rescue orders are assigned zero loss.
+
+## 4. Data Model & Schema
 
 The project uses multiple relational tables. Core entities:
 
