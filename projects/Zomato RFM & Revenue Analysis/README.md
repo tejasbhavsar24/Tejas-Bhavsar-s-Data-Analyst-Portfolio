@@ -251,13 +251,17 @@ iii) **Build segment‑specific strategies:**
 - Champions, though only about 15.5% of users, contribute nearly 30% of revenue and need personalised, premium experiences to retain their high lifetime value.
 - Potential Loyalists should be reached out to through gamified missions, streaks, and targeted offers to increase frequency of purchases and move up the loyalty tiers.
 
+**Food Rescue**
+
+While Food Rescue orders are treated as net-zero profit, they convert cancellations into fulfilled orders and reduce refund leakage. The feature also supports sustainability goals and improves customer trust. Scaling Food Rescue further can improve operational efficiency and brand perception. So focus on scaling the feature across cities, especially cities or localities where data shows high cancellations because after the introduction of Food Rescue, cancellation rates dropped from **0.49 to 0.17**.
+
 **Product & UX**
 
 The funnel performs well from app entry to restaurant browsing, with high conversions in early stages,around **100% to 93.2%**. Drop-offs appear mainly at the menu, cart, and checkout stages. Since overall conversion remains strong, the issue is not UX design but decision-making at checkout. Zomato should focus on clearer pricing, better discount visibility, and final savings explanations to reduce last-minute exits caused by price comparison and offer search.
 
 **Membership & Monetisation**
 
-Zomato should target high-spend non-Gold users with personalised nudges, free trial periods, and clear savings communication. Strengthening the Gold value proposition beyond free delivery can help improve long-term retention and customer lifetime value. Zomato should also look into offering higher-tier Gold Membership with additional benefits of greater incentives tier, free tickets for some movies or events in their city via District or offer some kind of Special Buffet Coupon on Anniversaries and Birthdays. Such rewards will motivate Champions, Loyal
+Zomato should target high-spend non-Gold users with personalised nudges, free trial periods, and clear savings communication. Strengthening the Gold value proposition beyond free delivery can help improve long-term retention and customer lifetime value. Zomato should also look into offering higher-tier Gold Membership with additional benefits of greater incentives tier, free tickets for some movies or events in their city via District or offer some kind of Special Buffet Coupon on Anniversaries and Birthdays. Such rewards will motivate Champions, Potential Loyalists to try to keep yearly spends under the program requirements to maintain their membership or spend higher to waive of the loyalty membership fee.
 
 **Apply city-specific strategies instead of one common approach:**
 
