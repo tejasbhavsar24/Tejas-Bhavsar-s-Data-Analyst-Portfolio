@@ -3,7 +3,7 @@
 
 - [Project Overview](#1-project-overview)
 - [Business Objectives & Research Questions](#2-business-objectives--research-questions)
-- [SQL Functions & Key Assumptions](#3-sql-functions-and-key-assumptions)
+- [SQL Functions & Key Assumptions](#3-sql-functions--key-assumptions)
 - [Data Model & Schema](#4-data-model--schema)
 - [How to Run the SQL](#5-how-to-run-the-sql)
 - [Using Views and Processed Tables](#6-using-views-and-processed-tables)
