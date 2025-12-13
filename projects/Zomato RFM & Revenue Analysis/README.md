@@ -54,45 +54,56 @@ The work is structured as a production‑style analytics project: data cleaning,
 
 In this project, various SQL functions are utilized for finding answers to business queries. The following functions were used for the project:
 
-**Aggregate functions**
-COUNT, SUM, AVG, MIN, MAX
-Used to compute orders, revenue, refunds, AOV, delivery times, and customer metrics.
+### **SQL Functions Used**
 
-**Conditional logic**
-CASE WHEN
-Used to:
--Classify order status (completed vs cancelled)
--Identify funnel stages from pageview URLs
--Segment customers into RFM categories
+- **Aggregate functions**
+  - `COUNT`, `SUM`, `AVG`, `MIN`, `MAX`
+  - Used to compute:
+    - Orders and customer counts
+    - Revenue, refunds, and AOV
+    - Delivery time and other performance metrics
 
-**Window functions**
-ROW_NUMBER, RANK, DENSE_RANK, NTILE
-Used for:
--RFM scoring and segmentation
--Ranking cities, cuisines, and customers
--Creating percentiles and cohorts without data loss
+- **Conditional logic**
+  - `CASE WHEN`
+  - Used to:
+    - Classify order status (completed vs cancelled)
+    - Identify funnel stages from pageview URLs
+    - Segment customers into RFM categories
 
-**Date & time functions**
-DATE, EXTRACT, DATEDIFF, TIMESTAMPDIFF,LAG
-Used to:
--Calculate recency and frequency windows
--Derive order hour, day, and month trends
--Measure delivery time and session-to-order latency
+- **Window functions**
+  - `ROW_NUMBER`, `RANK`, `DENSE_RANK`, `NTILE`
+  - Used for:
+    - RFM scoring and segmentation
+    - Ranking cities, cuisines, and customers
+    - Creating percentiles and cohorts without data loss
 
-**Joins**
-INNER JOIN, LEFT JOIN
-Used to combine user, session, order, item, restaurant, and cancellation data while preserving analytical integrity.
+- **Date & time functions**
+  - `DATE`, `EXTRACT`, `DATEDIFF`, `TIMESTAMPDIFF`, `LAG`
+  - Used to:
+    - Calculate recency and frequency windows
+    - Derive order hour, day, and month trends
+    - Measure delivery time and session-to-order latency
 
-**Null handling & data safety**
-COALESCE, NULLIF
-Used to:
--Avoid divide-by-zero errors
--Handle missing cancellations or refunds cleanly
--Ensure consistent metric calculation
+- **Joins**
+  - `INNER JOIN`, `LEFT JOIN`
+  - Used to:
+    - Combine user, session, order, item, restaurant, and cancellation data
+    - Preserve analytical integrity when handling incomplete or cancelled records
 
-**Views and temporary tables**
-CREATE VIEW, WITH (CTEs), temporary tables
-Used to modularise logic, improve readability, and allow re-use across multiple analyses (funnel, revenue, RFM).
+- **Null handling & data safety**
+  - `COALESCE`, `NULLIF`
+  - Used to:
+    - Avoid divide-by-zero errors
+    - Handle missing cancellations or refunds cleanly
+    - Ensure consistent metric calculation
+
+- **Views and temporary tables**
+  - `CREATE VIEW`, `WITH` (CTEs), temporary tables
+  - Used to:
+    - Modularise complex logic
+    - Improve query readability and maintainability
+    - Re-use logic across funnel, revenue, and RFM analyses
+
 
 **Key Assumptions:**
 
