@@ -10,8 +10,9 @@
 - [Key Insights (Business Summary)](#7-key-insights-business-summary)
   - [UX Funnel & Channel Performance](#71-ux-funnel--channel-performance)
   - [City, Cuisine & Demand Patterns](#72-city-cuisine--demand-patterns)
-  - [RFM & Gold Membership](#73-rfm--gold-membership)
-  - [Cancellations, Refunds & Food Rescue](#74-cancellations-refunds--food-rescue)
+  - [Month - on - Month Revenue Performance](#73-month-on-month-revenue-performance)
+  - [RFM & Gold Membership](#74-rfm--gold-membership)
+  - [Cancellations, Refunds & Food Rescue](#75-cancellations-refunds--food-rescue)
 - [Recommendations for Zomato](#8-recommendations-for-zomato)
 - [My Role and Learnings](#9-my-role-and-learnings)
 
@@ -197,33 +198,41 @@ Some important derived objects:
 ## 7. Key Insights (Business Summary)
 
 ### 7.1 UX Funnel & Channel Performance
+  UX Funnel Analysis:
+  
+The SQL-based funnel analysis shows that Zomato’s UX funnel is structurally strong, with relatively low drop-offs through discovery and browsing stages. Attrition becomes more visible at the menu, cart, and checkout stages—points where users actively evaluate price, discounts, and alternatives. Overall conversion rates remain high across the funnel, indicating that navigation, layout, and usability are not core issues. Instead, checkout friction appears driven by price sensitivity and cross-platform comparison behaviour- Social channels drive traffic and orders with slightly lower AOV, suitable for acquisition and campaign bursts.
 
-- Funnel exits are modest up to menu selection; drop‑off becomes visible at cart and checkout.
-- Checkout friction seems more related to price and discount search than navigation.
-- Direct app, notifications, and Google are strong revenue sources with high conversion.
-- Social channels drive traffic and orders with slightly lower AOV, suitable for acquisition and campaign bursts.
-- Mobile dominates usage and revenue, confirming a mobile‑first product and marketing strategy. Desktop and tablet show weaker performance and can be deprioritized.
+  Device and Channel Analysis:
+As for Device analysis, Mobile is the dominant device across usage, orders, and revenue, delivering consistently high conversion rates and strong ARPU across all channels. confirming a mobile‑first product and marketing strategy. Desktop and tablet show weaker performance and can be deprioritized.
+From a channel standpoint, Direct App traffic and Google are the strongest revenue drivers, reflecting strong brand recall and habitual usage. Social channels generate large session volumes but lower AOV, making them more suitable for acquisition and campaign bursts. High conversion rates from app notifications highlight the effectiveness of Zomato’s retention-led marketing strategy.
 
 ### 7.2 City, Cuisine & Demand Patterns
+  
+  **City-Wise Analysis:**
+  
+City-wise aggregation reveals clear differences in market maturity. Bangalore and Hyderabad lead in GMV due to high order volumes combined with solid AOV, indicating strong food delivery adoption among working professionals. Chennai and Delhi show higher AOVs but relatively flatter growth, suggesting more mature, saturated demand where value extraction matters more than scale. Kolkata has relatively stable AOV, and one of the best overall revenue contributions **(18.35%)** and high order volumes. Delivery fees remain largely consistent across cities, implying that revenue variation is driven more by consumer behaviour than logistics. These patterns support differentiated city strategies—growth-focused initiatives in emerging metros like Hyderabad and premiumisation-led strategies in mature markets like Delhi and Kolkata.
 
-- Bangalore and Hyderabad deliver high GMV, supported by strong order volumes and healthy AOV.
-- Delhi and Chennai show higher AOV but more mature demand, suggesting focus on value extraction rather than pure growth.
-- Biryani and Mughlai cuisine consistently appear in top combinations across metros, confirming them as “hero categories”.
-- Demand peaks between 7 PM and 10 PM, with 8–9 PM as the strongest slots. Weekend evenings show clear uplift versus weekdays.
-- Morning hours remain underused, representing a potential growth window for breakfast‑oriented campaigns and tailored landing experiences.
+  **Cuisine & Food Behaviour Insights:**
 
-### 7.3 RFM & Gold Membership
+Cuisine-level ranking consistently places Biryani and Mughlai dishes at the top across all major metros. Popular pairings such as Butter Chicken + Mutton Rogan Josh **(549 orders)** and **Chicken Biryani + Masala Dosa (537 orders)** indicate strong multi-item and group ordering behaviour, directly contributing to higher AOV. These patterns explain the rapid scaling of biryani-focused cloud kitchens and delivery-first brands. From a strategic standpoint, biryani emerges as a hero category with strong demand elasticity, cross-city scalability, and high monetisation potential, justifying continued investment in combo pricing and bundled recommendations.
 
-- Loyal Customers make up the largest share of users and account for the majority of revenue. They are the core cash‑flow segment.
-- Champions are fewer in number but have much higher total spend per user. They need premium, experience‑led retention rather than discount‑heavy tactics.
-- Potential Loyalists form a sizable upgrade pipeline with lower current contribution. They respond better to habit‑building nudges, streaks, and gamified milestones.
-- Gold members show higher AOV in key segments, but adoption is limited. Most revenue still comes from non‑Gold loyal and champion users, leaving room for targeted membership conversion.
+  **Peak Ordering Hours & Temporal Demand**
 
-### 7.4 Cancellations, Refunds & Food Rescue
+Temporal analysis shows that demand peaks sharply during the evening dinner window (7 PM–10 PM), with 8 PM recording the highest volume **(703 orders)**, followed closely by 9 PM **(659 orders)**. Weekends (Friday–Sunday) exhibit clear uplift during evening hours, while lunch demand peaks moderately between 1 PM–3 PM. Early-morning ordering remains minimal, with the 5 AM spike **(711 orders)** identified as a synthetic data artifact rather than real behaviour. These findings reinforce Zomato’s focus on late-night delivery, weekend campaigns, and time-based offers, while also validating recent experiments aimed at uplifting underperforming breakfast hours.
 
-- Cancellation and refund data reveals a meaningful reduction in cancellation rate after introduction of a Food Rescue‑type feature.
-- Food Rescue converts what would be full‑refund cancellations into discounted orders with net‑zero or low margin, but reduces refund loss and improves perceived reliability.
-- This feature supports operational efficiency and aligns with sustainability and brand positioning around reduced food waste.
+### 7.3 Month - on - Month Revenue Performance
+
+Month-on-month analysis reveals distinct seasonal and strategic phases. After peaking in October 2024 (1,270+ orders; ₹187.6 platform revenue per order), performance declined into early 2025, with February marking the lowest point **(–17.1% MoM orders, –13.7% revenue)**. Despite lower volumes, platform revenue per order peaked at **₹196**, indicating a shift toward higher monetisation and profitability.
+A recovery began in March–April, with May–June 2025 reaching new highs in both orders and revenue, supported by summer demand, IPL-driven engagement, and user adaptation to revised pricing. Rolling 3-month metrics reflect Zomato’s strategic transition from discount-led growth to profitability and AOV-driven expansion.
+
+### 7.4 RFM & Gold Membership
+
+RFM analysis highlights Loyal Customers as the core revenue driver, representing **65%** of users and contributing **~60.3%** of total revenue, with an average AOV of **₹664** and average total spend of **₹1,958**. Champions, though only **15.5%** of users, contribute **~30.6%** of total revenue, with significantly higher AOV **(₹762)** and average spend **₹4,185**, requiring premium, experience-led retention strategies.
+Gold members exhibit lower cancellation rates (0.35 vs 0.47) and higher AOV within top segments, indicating stronger loyalty and reduced price sensitivity. However, Gold adoption remains limited, with 80% of revenue still coming from non-Gold users, highlighting a strong opportunity for targeted membership conversion among high-spend cohorts.
+
+### 7.5 Cancellations, Refunds & Food Rescue
+
+Post–Food Rescue implementation, the cancellation rate dropped sharply from **0.49 to 0.17**, indicating a significant improvement in order reliability. Although Food Rescue orders are treated as net-zero profit transactions—where Zomato retains only delivery fees, the feature converts full-refund cancellations into fulfilled discounted orders. This reduced refund loss from approximately **₹20,994 to ₹15,156**, delivering incremental operational and financial benefits. Beyond revenue protection, Food Rescue strengthens customer trust, reduces food wastage, and aligns with Zomato’s ESG and sustainability positioning, contributing to long-term brand equity.
 
 ---
 
