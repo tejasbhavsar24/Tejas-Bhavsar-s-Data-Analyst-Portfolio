@@ -315,29 +315,17 @@ LEFT JOIN orders_per_sessions as o
 
 ```sql
 create view vw_channel_performance AS
-
 SELECT s.utm_source,s.device_type,
-
 count(o.order_id) AS total_orders,
-
 COUNT(DISTINCT s.app_session_id) AS unique_sessions,
-
 COUNT(DISTINCT s.user_id) AS unique_users,
-
 SUM(o.total_price) AS GMV,
-
 ROUND(count(o.order_id) * 100 / count(DISTINCT s.app_session_id),2) AS conversion_rate,
-
 AVG(o.total_price) AS AOV
-
 from app_sessions s
-
 left join orders o
-
 on s.app_session_id = o.app_session_id
-
 group by s.utm_source, s.device_type
-
 order by GMV DESC;
 ```
 
@@ -347,27 +335,16 @@ order by GMV DESC;
 
 ```sql
 SELECT s.utm_source,
-
 count(o.order_id) AS total_orders,
-
 COUNT(DISTINCT s.app_session_id) AS unique_sessions,
-
 COUNT(DISTINCT s.user_id) AS unique_users,
-
 SUM(o.total_price) AS GMV,
-
 ROUND(count(o.order_id) * 100 / count(DISTINCT s.app_session_id),2) AS conversion_rate,
-
 AVG(o.total_price) AS AOV
-
 from app_sessions s
-
 left join orders o
-
 on s.app_session_id = o.app_session_id
-
 group by s.utm_source
-
 order by GMV DESC;
 ```
 
@@ -400,27 +377,16 @@ LEFT JOIN cancelled_orders c
     ON o.order_id = c.order_id;
 
 SELECT s.device_type,
-
 count(n.order_id) AS total_orders,
-
 COUNT(DISTINCT s.app_session_id) AS unique_sessions,
-
 COUNT(DISTINCT s.user_id) AS unique_users,
-
 SUM(n.total_price) AS GMV,
-
 ROUND(count(n.order_id) * 100 / count(DISTINCT s.app_session_id),2) AS Conversion_Rate,
-
 ROUND(COALESCE(sum(n.net_revenue) / count(DISTINCT s.app_session_id)),2) AS Average_Revenue_Per_Session
-
 from app_sessions s
-
 left join net_order_sessions n
-
 on s.app_session_id = n.app_session_id
-
 group by s.device_type
-
 order by GMV DESC;
 ```
 
@@ -432,61 +398,37 @@ order by GMV DESC;
 
 ```sql
 CREATE TEMPORARY TABLE city_performance AS
-
 SELECT r.city,
-
 COUNT(o.order_id) AS total_orders,
-
 COUNT(oc.order_id) AS cancelled_orders,
-
 ROUND((COUNT(oc.order_id)*100) / COUNT(o.order_id), 2) AS cancellation_rate,
-
 ROUND(SUM(o.total_price), 2) AS GMV,
-
 ROUND(SUM(o.total_price) / COUNT(o.order_id),2) AS AOV,
-
 SUM(o.delivery_fee_paid) AS total_delivery_fee,
-
 ROUND(SUM((0.30*o.total_price) + o.delivery_fee_paid), 2) AS zomato_gross_revenue,
-
 ROUND(SUM(COALESCE(oc.amount_of_refund, 0)),2) AS refund_loss,
-
-SUM(CASE
-
+SUM(
+CASE
 WHEN oc.order_id IS NULL THEN (0.30*o.total_price + o.delivery_fee_paid)
-
 ELSE (0.30*o.total_price + o.delivery_fee_paid - oc.amount_of_refund)
-
-END) AS zomato_net_revenue,
-
+END
+) AS zomato_net_revenue,
 ROUND(SUM((0.30*o.total_price) + o.delivery_fee_paid) / COUNT(DISTINCT s.app_session_id), 2) AS ARPS,
-
 AVG(TIMESTAMPDIFF(MINUTE, o.order_time, o.delivery_time)) AS avg_delivery_time,
-
 AVG(o.delivery_fee_paid) AS avg_delivery_fee
-
 FROM orders o
-
 LEFT JOIN order_items_cancelled oc
-
 ON o.order_id = oc.order_id
-
 LEFT JOIN restaurants r
-
 ON o.restaurant_id = r.restaurant_id
-
 LEFT JOIN app_sessions s
-
 ON o.app_session_id = s.app_session_id
-
 GROUP BY r.city
-
 ORDER BY zomato_net_revenue DESC;
 
+# To view the Revenue Analysis
 SELECT *,
-
 ROUND((zomato_net_revenue * 100 / GMV),2) AS margin_pct
-
 FROM city_performance;
 ```
 
@@ -496,35 +438,21 @@ FROM city_performance;
 
 ```sql
 WITH food_city_zomato AS(
-
 SELECT
-
 r.city,
-
 TRIM(LOWER(m.fooditem_name)) AS foodname, sum(oi.quantity) AS total_orders,
-
 DENSE_RANK() OVER(PARTITION BY r.city ORDER BY SUM(oi.quantity) DESC) AS most_ordered_food
-
 FROM order_items oi
-
 JOIN menu m
-
 ON oi.food_item_id = m.food_item_id
-
 JOIN restaurants r
-
 ON r.restaurant_id = m.restaurant_id
-
 GROUP BY r.city, TRIM(LOWER(m.fooditem_name))
-
 )
 
 SELECT city, foodname, total_orders
-
 FROM food_city_zomato
-
 WHERE most_ordered_food <= 4
-
 ORDER BY city, total_orders DESC;
 ```
 
@@ -536,37 +464,21 @@ ORDER BY city, total_orders DESC;
 
 ```sql
 CREATE view customer_rfm_analysis AS
-
 SELECT
-
 u.user_id,
-
 u.city,
-
 u.age,
-
 u.gender,
-
 u.gold_member,
-
 datediff(CURDATE(), MAX(STR_TO_DATE(o.order_time, '%Y-%m-%d %H:%i:%s'))) as recency,
-
 COUNT(o.order_id) as frequency,
-
 SUM(o.total_price) AS monetary,
-
 AVG(o.total_price) as avg_order_value
-
 FROM users u
-
 JOIN app_sessions a
-
 ON u.user_id = a.user_id
-
 JOIN orders o
-
 ON o.app_session_id = a.app_session_id
-
 GROUP BY u.user_id, u.city, u.age,u.gender,u.gold_member;
 ```
 
@@ -576,52 +488,30 @@ GROUP BY u.user_id, u.city, u.age,u.gender,u.gold_member;
 
 ```sql
 CREATE VIEW rfm_analysis_score AS
-
 SELECT *,
-
 CASE
-
 WHEN recency BETWEEN 155 AND 228 THEN 5
-
 WHEN recency BETWEEN 229 AND 302 THEN 4
-
 WHEN recency BETWEEN 303 AND 376 THEN 3
-
 WHEN recency BETWEEN 377 AND 450 THEN 2
-
 ELSE 1
-
 END AS recency_score,
-
 CASE
-
 WHEN frequency <= 10 THEN 5
-
 WHEN frequency <= 7 THEN 4
-
 WHEN frequency <= 5 THEN 3
-
 WHEN frequency <= 3 THEN 2
-
 ELSE 1
-
 END AS frequency_score,
-
 CASE
-
 WHEN monetary BETWEEN 104 AND 1590 THEN 1
-
 WHEN monetary BETWEEN 1591 AND 3076 THEN 2
-
 WHEN monetary BETWEEN 3077 AND 4562 THEN 3
-
 WHEN monetary BETWEEN 4563 AND 6048 THEN 4
-
 ELSE 5
-
 END AS monetary_score
-
 FROM customer_rfm_analysis;
+# Note: You can use binning like i did or use quantiles for more statistical approach to dividing data,but in this case the results appeared similar
 ```
 
 ---
@@ -630,42 +520,26 @@ FROM customer_rfm_analysis;
 
 ```sql
 CREATE VIEW rfm_segments AS
-
 SELECT
-
 user_id,
-
 city,
-
 gold_member,
-
 recency,
-
 frequency,
-
 monetary,
-
 recency_score,
-
 frequency_score,
-
 monetary_score,
-
 CASE
-
 WHEN recency_score >= 4 AND frequency_score >= 4 AND monetary_score >= 4 THEN 'Champions'
-
 WHEN recency_score >= 3 AND frequency_score >= 3 THEN 'Loyal Customers'
-
 WHEN recency_score >= 4 AND frequency_score < 3 THEN 'Potential Loyalists'
-
 WHEN frequency_score > 2 AND recency_score < 3 THEN 'At-Risk'
-
 ELSE 'Lost'
-
 END AS rfm_segment
-
 FROM rfm_analysis_score;
+# Lost and At-Risk segments wont be coming because synthesized dataset contains only customers active for past 1 year
+# and having a certain average order value, so they all fall under the 3 loyalty categories.
 ```
 
 ---
@@ -674,35 +548,20 @@ FROM rfm_analysis_score;
 
 ```sql
 SELECT
-
 rfm_segment,
-
 COUNT(DISTINCT user_id) AS num_customers,
-
 ROUND(COUNT(DISTINCT user_id) * 100 / SUM(COUNT(DISTINCT user_id)) OVER (), 2) AS pct_of_customer_base,
-
 ROUND(AVG(recency), 1) AS avg_recency_days,
-
 ROUND(AVG(frequency), 1) AS avg_frequency_orders,
-
 ROUND(AVG(monetary), 2) AS avg_lifetime_value,
-
 ROUND(SUM(monetary), 2) AS segment_total_revenue,
-
 ROUND(SUM(monetary) * 100 / SUM(SUM(monetary)) OVER (), 2) AS pct_of_total_revenue,
-
 ROUND(
-
     SUM(CASE WHEN gold_member = 1 THEN 1 ELSE 0 END) * 100 / NULLIF(COUNT(DISTINCT user_id), 0),
-
     2
-
 ) AS gold_member_adoption_pct
-
 FROM rfm_segments
-
 GROUP BY rfm_segment
-
 ORDER BY segment_total_revenue DESC;
 ```
 
@@ -712,27 +571,16 @@ ORDER BY segment_total_revenue DESC;
 
 ```sql
 SELECT
-
 rfm_segment,
-
 city,
-
 COUNT(DISTINCT user_id) AS no_of_customers,
-
 ROUND(AVG(monetary), 2) AS avg_AOV,
-
 ROUND(AVG(monetary), 2) AS avg_total_spend,
-
 ROUND(SUM(monetary), 2) AS total_revenue_by_segment_city,
-
 ROUND(SUM(monetary) * 100 / SUM(SUM(monetary)) OVER (PARTITION BY rfm_segment), 2) AS pct_revenue_within_segment,
-
 ROUND(SUM(monetary) * 100 / SUM(SUM(monetary)) OVER (), 2) AS pct_revenue_of_company
-
 FROM rfm_segments
-
 GROUP BY rfm_segment, city
-
 ORDER BY rfm_segment, total_revenue_by_segment_city DESC;
 ```
 
@@ -742,24 +590,222 @@ ORDER BY rfm_segment, total_revenue_by_segment_city DESC;
 
 ```sql
 SELECT
-
 rfm_segment,
-
 gold_member,
-
 CASE WHEN gold_member = 1 THEN 'Gold' ELSE 'Non-Gold' END AS membership,
-
 COUNT(DISTINCT user_id) AS num_customers,
-
 ROUND(AVG(monetary), 2) AS avg_lifetime_value,
-
 ROUND(SUM(monetary), 2) AS total_segment_revenue
-
 FROM rfm_segments
-
 GROUP BY rfm_segment, gold_member
-
 ORDER BY rfm_segment, gold_member DESC;
 ```
 
---
+---
+### Step 6: Month on Month Calculations of Revenue
+
+```sql
+WITH 
+monthly AS
+(
+SELECT 
+	order_year,
+    order_month,
+    COUNT(order_id) AS order_count,
+    SUM(total_price) AS revenue,
+    ROUND(AVG(0.30 * (total_price - delivery_fee_paid)), 2) AS inferred_platform_revenue_per_order
+    FROM orders
+    GROUP BY order_year,order_month
+),
+
+monthly_prev AS
+( 
+	SELECT
+	order_year,
+    order_month,
+    order_count,
+    revenue,
+    inferred_platform_revenue_per_order,
+    LAG(order_count) OVER(order by order_year, order_month) AS prev_order_count,
+    LAG(revenue) OVER(order by order_year, order_month) AS prev_revenue,
+    LAG(inferred_platform_revenue_per_order) OVER (order by order_year, order_month) AS prev_zomato_platform_rev
+    FROM monthly
+)
+
+SELECT
+order_year,
+order_month,
+order_count,
+revenue,
+inferred_platform_revenue_per_order,
+ROUND((order_count - prev_order_count) *100 
+/ NULLIF(prev_order_count,0),2) AS mom_orders_pct,
+ROUND((revenue - prev_revenue) * 100
+/ NULLIF(prev_revenue,0), 2) AS mom_revenue_pct,
+ROUND((inferred_platform_revenue_per_order - prev_zomato_platform_rev) * 100
+/ NULLIF(prev_zomato_platform_rev,0), 2) AS mom_zomato_revenue_pct,
+
+# --- 3 month rolling totals for orders
+SUM(order_count) OVER(order by order_year, order_month
+ROWS between 2 PRECEDING AND CURRENT ROW) AS 3m_order_rollingtotal,
+SUM(revenue) OVER(order by order_year, order_month 
+ROWS between 2 PRECEDING AND CURRENT ROW) AS 3m_revenue_rollingtotal,
+SUM(inferred_platform_revenue_per_order) OVER(order by order_year, order_month 
+ROWS between 2 PRECEDING AND CURRENT ROW) AS 3m_platform_revenue_rollingtotal
+FROM monthly_prev 
+ORDER BY order_year, order_month;
+```
+---
+
+### Step 7: Peak Order Days and Hours - Demand Pattern Analysis
+
+```sql
+# Determing the Hours and Days when Orders Peak - Determining the busiest delivery hours and days
+
+# Checking if weekdays and hours columns are made before or not
+select *, weekday(order_time)
+from orders;
+    
+select 
+DENSE_RANK() OVER(ORDER BY SUM(no_of_orders) DESC) AS busy_hour_ranks,
+order_hour,
+SUM(CASE WHEN weekdays = 0 THEN no_of_orders END) AS SUNDAY,
+SUM(CASE WHEN weekdays = 1 THEN no_of_orders END) AS MONDAY,
+SUM(CASE WHEN weekdays = 2 THEN no_of_orders END) AS TUESDAY,
+SUM(CASE WHEN weekdays = 3 THEN no_of_orders END) AS WEDNESDAY,
+SUM(CASE WHEN weekdays = 4 THEN no_of_orders END) AS THURSDAY,
+SUM(CASE WHEN weekdays = 5 THEN no_of_orders END) AS FRIDAY,
+SUM(CASE WHEN weekdays = 6 THEN no_of_orders END) AS SATURDAY,
+sum(no_of_orders) AS total_orders
+FROM 
+(SELECT weekday(order_time) AS weekdays,
+order_hour,
+count(distinct order_id) AS no_of_orders
+FROM orders
+group by weekday(order_time), order_hour
+) AS hourly_sessions
+GROUP BY order_hour
+ORDER BY order_hour ASC;
+
+```
+---
+Step 8: Food Rescue Feature Analysis
+### Step 8.1: Creating View Netorders
+
+```sql
+
+CREATE OR REPLACE view NetOrders AS
+SELECT
+o.order_id,
+o.order_time,
+o.delivery_time,
+o.app_session_id,
+o.delivery_agent_id,
+o.restaurant_id,
+o.primary_product_id,
+o.delivery_fee_paid,
+o.payment_mode,
+o.sales_quantity,
+o.total_price,
+CASE
+	WHEN oic.order_id IS NULL THEN 'COMPLETED'
+    WHEN oic.food_rescue_availed = 'YES' THEN 'Food Rescue Availed'
+    ELSE 'CANCELLED'
+END AS order_status,
+-- Platform revenues and commissions are only charged on completed orders,
+-- delivery fees paid to drivers for new rescue customer delivery
+-- zomato keeps only tax on new order rest is paid as refund to old
+-- and restaurant and delivery fee to partner delivery person
+-- so assumption to keep rescue order as net zero impact on platform as mentioned in Zomato Blog and by Mr Deepinder Goyal
+CASE
+	WHEN oic.order_id IS NULL THEN (0.30*o.total_price) + o.delivery_fee_paid
+    WHEN oic.food_rescue_availed ='YES' THEN o.delivery_fee_paid
+    ELSE 0 
+END AS platform_revenue,
+CASE
+	WHEN oic.order_id IS NULL THEN 0
+    WHEN oic.food_rescue_availed = 'YES' THEN 0
+    ELSE (o.total_price + o.delivery_fee_paid)
+END AS revenue_loss
+
+FROM orders o
+LEFT JOIN 
+	(SELECT
+	order_id, MAX(food_rescue_availed) AS food_rescue_availed
+	FROM order_items_cancelled
+    GROUP BY order_id
+    ) oic
+ON o.order_id = oic.order_id;
+```
+---
+
+### Step 8.2: Making Date Filter for Pre and Post Food Rescue and Calculating Revenue
+```sql
+SELECT
+CASE
+	WHEN order_time < '2024-11-01' THEN 'Pre Food Rescue'
+    WHEN order_time >= '2024-11-01' THEN 'Post Food Rescue'
+    ELSE 'UNKNOWN'
+END AS Zomato_period,
+COUNT(CASE WHEN order_status = 'COMPLETED' THEN 1 END) AS Completed_Orders,
+COUNT(CASE WHEN order_status = 'CANCELLED' THEN 1 END) AS Cancelled_Orders,
+COUNT(CASE WHEN order_status = 'Food Rescue Availed' THEN 1 END) AS Foodrescued_Orders,
+SUM(platform_revenue) AS Total_Revenue,
+SUM(revenue_loss) AS total_loss,
+(COUNT(CASE WHEN order_status = 'CANCELLED' THEN 1 END) * 100 / COUNT(order_id)) AS cancellation_rate
+FROM NetOrders
+GROUP BY Zomato_period;
+
+```
+---
+### Step 9: Top Restaurants by Review and Most Ordered Together Food Items Analysis:
+
+### Step 9.1: 10 Most Highly Rated Restaurants USING LIMIT:
+```sql
+# Top N Highest Rated Restaurants with high number of reviews and the cuisuine they sell
+SELECT 
+row_number() OVER(ORDER BY rating DESC) AS top_restaurants,
+restaurant_id,
+cuisine,
+city,
+rating,
+number_of_reviews
+FROM restaurants 
+WHERE number_of_reviews > 
+	(SELECT AVG(number_of_reviews)
+	FROM restaurants)
+LIMIT 10;
+```
+---
+
+### Step 9.2: Order Pair Combinations (Mini Market Basket Analysis of Zomoto Ordered Food Items)
+```sql
+#Most Ordered Combinations
+WITH primary_pairs AS (
+    SELECT
+        o.order_id,
+        m1.fooditem_name AS primary_name,
+        m2.fooditem_name AS paired_name
+    FROM orders o
+    JOIN order_items oi ON o.order_id = oi.order_id AND oi.food_item_id <> o.primary_product_id
+    JOIN menu m1 ON o.primary_product_id = m1.food_item_id
+    JOIN menu m2 ON oi.food_item_id = m2.food_item_id
+    WHERE m1.fooditem_name IS NOT NULL AND m2.fooditem_name IS NOT NULL
+),
+normalized_pairs AS (
+    SELECT
+        order_id,
+        CASE WHEN primary_name < paired_name THEN primary_name ELSE paired_name END AS comboitem_1,
+        CASE WHEN primary_name < paired_name THEN paired_name ELSE primary_name END AS comboitem_2
+    FROM primary_pairs
+)
+SELECT
+    comboitem_1,
+    comboitem_2,
+    COUNT(DISTINCT order_id) AS combo_order_count
+FROM normalized_pairs
+GROUP BY comboitem_1, comboitem_2
+ORDER BY combo_order_count DESC
+LIMIT 10;
+```
+---
