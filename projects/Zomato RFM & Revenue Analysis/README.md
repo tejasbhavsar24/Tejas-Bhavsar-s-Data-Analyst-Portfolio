@@ -285,7 +285,8 @@ The funnel performs well from app entry to restaurant browsing, with high conver
 
 **Membership & Monetisation**
 
-Zomato should target high-spend non-Gold users with personalised nudges, free trial periods, and clear savings communication. Strengthening the Gold value proposition beyond free delivery can help improve long-term retention and customer lifetime value. Zomato should also look into offering higher-tier Gold Membership with additional benefits of greater incentives tier, free tickets for some movies or events in their city via District or offer some kind of Special Buffet Coupon on Anniversaries and Birthdays. Such rewards will motivate Champions, Potential Loyalists to try to keep yearly spends under the program requirements to maintain their membership or spend higher to waive of the loyalty membership fee.
+Zomato should target high-spend non-Gold users with personalised nudges, free trial periods, and clear savings communication. Strengthening the Gold value proposition beyond free delivery can help improve long-term retention and customer lifetime value. Zomato should also look into offering higher-tier Gold Membership with additional benefits of greater incentives tier, free tickets for some movies or events in their city via District or offer some kind of Special Buffet Coupon on Anniversaries and Birthdays. Such rewards will motivate Champions and some Loyal Repeat Customers.
+Potential Loyalists to try to keep yearly spends under the program requirements to maintain their membership or spend higher to waive of the loyalty membership fee.
 
 **Apply city-specific strategies instead of one common approach:**
 
@@ -297,16 +298,17 @@ Bangalore and Hyderabad lead in GMV due to high order volumes and healthy AOV, i
 
 From this project, I practised:
 
-- Writing production‑style SQL:
+- Writing Complete Cleaning to Modelling Production Style SQL Queries:
   - Temporary tables, views, window functions, and careful use of `COALESCE` and `NULLIF`.
+  - Data Cleaning, De-Duplication, and Field Data Type Change
+  - Handling Date Time Functions and Data Type Conversions for temporal analysis
+    
 - Designing end‑to‑end analysis:
   - From schema understanding and cleaning to funnel, RFM Model, and cohorts.
-- Translating raw metrics into marketing, product, and operations insights:
+    
+- Converting the raw metrics into marketing, product, and operations insights:
   - Segment strategies, channel focus, membership design, and feature impact.
 
 This repository is meant to demonstrate how I approach analytics problems in a way that is clear for stakeholders and easy to follow for other analysts.
 
 ---
-
-
-
