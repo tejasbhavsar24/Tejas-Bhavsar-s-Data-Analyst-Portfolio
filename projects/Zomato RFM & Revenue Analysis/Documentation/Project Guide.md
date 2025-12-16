@@ -49,10 +49,10 @@ This project answers:
 
 ---
 
-## 🧩 PART 1: Database Setup & Data Cleaning
+## PART 1: Database Setup & Data Cleaning
 
 ### Objective
-## 🔍 Initial Data Checks
+## Initial Data Checks
 
 ### User & Order Counts
 
@@ -193,6 +193,10 @@ HAVING COUNT(*) > 1;
 Zero rows returned.
 
 ---
+# First Clean the data
+# Once completely deduplicated and all columns for date time derived
+# We will start with Exploratory Data Analysis and Mdoelling
+# We look at 1) Funnel, 2)Channel and Device, 3) City / Location Wise, 4) RFM Segments - this includes the assumptions for developing scores, and creating the semgments, their calculation and finally how model makes RMF Score, 5) Month on Month Revenue Calculation - where I have taken used LAG Function and PRECEEDING AND CURRENT AND PREVIOUS FUNCTIONS with WINDOW, 6) Peak Order Demand Pattern Analysis by days and hours using HOUR(), WEEKDAYS() DATETIME METHODS on the converted datetime type order and delivery times fields in ORDERS Table , 7) Food Rescue Feature Analysis and Its Revenue And Profit Impact using Assumptions that it has a net zero impact on profits and actually helps reduce losses and rather Zomato earns from marginal gains in platform fees instead. 8) Food and Restaurant Analysis and some light Market Basket Analysis on most commonly bought together food items combos, 9) Zomato Gold Vs Non-Gold User Behaviour and looking at Wallet vs other modes of payment preferences in payments
 
 ## Part 2: UX Funnel Analysis
 
@@ -807,5 +811,50 @@ FROM normalized_pairs
 GROUP BY comboitem_1, comboitem_2
 ORDER BY combo_order_count DESC
 LIMIT 10;
+```
+---
+### Step 10: Zomato User Behaviour Analysis
+### Step 10.1: Zomato GOLD VS NON-GOLD Behaviour and Cancellation Behaviour
+```sql
+WITH member_items_ordered AS (
+  SELECT order_id,
+         SUM(sales_quantity) AS total_items_ordered
+    FROM netorders
+   GROUP BY order_id
+)
+SELECT 
+  CASE WHEN u.gold_member = 'Yes' THEN 'GOLD MEMBER'
+       ELSE 'NON GOLD MEMBER'
+  END AS Membership_status,
+  COUNT(DISTINCT n.order_id) AS no_of_orders,
+  SUM(CASE WHEN n.order_status = 'COMPLETED' THEN 1 ELSE 0 END) AS completed_orders,
+  SUM(CASE WHEN n.order_status = 'COMPLETED' THEN m.total_items_ordered ELSE 0 END) AS no_of_items_in_completed_orders,
+  ROUND(SUM(CASE WHEN n.order_status = 'COMPLETED' THEN m.total_items_ordered ELSE 0 END) / COUNT(DISTINCT n.order_id),2) AS no_of_items_per_order,
+  SUM(CASE WHEN n.order_status IN ('CANCELLED','Food Rescue Availed')THEN 1 ELSE 0 END) AS cancelled_orders,
+  SUM(CASE WHEN n.order_status IN ('CANCELLED','Food Rescue Availed') THEN m.total_items_ordered ELSE 0 END) AS no_of_items_cancelled_in_orders,
+  ROUND(SUM(CASE WHEN n.order_status IN ('CANCELLED','Food Rescue Availed')THEN 1 ELSE 0 END) *100 / COUNT(DISTINCT n.order_id),2) AS cancelled_orders_pct
+FROM member_items_ordered m
+JOIN netorders n ON m.order_id = n.order_id
+JOIN app_sessions a ON a.app_session_id = n.app_session_id
+JOIN users u ON u.user_id = a.user_id
+GROUP BY Membership_status;
+```
+---
+
+# Step 10.2: Zomato Wallet Users and Payment Mode Preferences
+```sql
+Select payment_mode, 
+CASE WHEN u.gold_member = 'Yes' THEN 'Gold Member'
+ELSE 'Not Gold Member'
+END AS Gold_Member_Status,
+COUNT(DISTINCT order_id) AS total_orders,
+SUM(total_price + delivery_fee_paid) AS gross_revenue
+FROM netorders n
+LEFT JOIN app_sessions a
+ON n.app_session_id = a.app_session_id
+LEFT JOIN users u
+ON a.user_id = u.user_id
+GROUP BY Gold_Member_Status,payment_mode 
+ORDER BY gross_revenue DESC;
 ```
 ---
