@@ -613,7 +613,7 @@ ORDER BY rfm_segment, gold_member DESC;
 ### Assumption: 
 - Zomato earns only 30-35% of GMV as it revenue comes from in form of platform fees and commissions that are assumed to be 30% of Total Price Paid by a customer - Delivery Fee Paid to a Delivery Partner. Hence This is an inferred revenue or Net Revenue calculation used here.
   
-### Step 6: Month on Month Calculations of Revenue
+### Part 6: Month on Month Calculations of Revenue
 
 ```sql
 WITH 
@@ -668,7 +668,7 @@ ORDER BY order_year, order_month;
 ```
 ---
 
-### Step 7: Peak Order Days and Hours - Demand Pattern Analysis
+## Part 7: Peak Order Days and Hours - Demand Pattern Analysis
 
 ```sql
 # Determing the Hours and Days when Orders Peak - Determining the busiest delivery hours and days
@@ -700,7 +700,7 @@ ORDER BY order_hour ASC;
 
 ```
 ---
-Step 8: Food Rescue Feature Analysis
+## Part 8: Food Rescue Feature Analysis
 ### Assumption:
 - Platform revenues and commissions are only charged on completed orders
 - Entire Delivery fees paid to drivers for delivery to new rescue customer
@@ -776,7 +776,7 @@ GROUP BY Zomato_period;
 
 ```
 ---
-### Step 9: Top Restaurants by Review and Most Ordered Together Food Items Analysis:
+## Part 9: Top Restaurants by Review and Most Ordered Together Food Items Analysis:
 
 ### Step 9.1: 10 Most Highly Rated Restaurants USING LIMIT:
 ```sql
@@ -827,7 +827,7 @@ ORDER BY combo_order_count DESC
 LIMIT 10;
 ```
 ---
-### Step 10: Zomato User Behaviour Analysis
+## Part 10: Zomato User Behaviour Analysis
 ### Step 10.1: Zomato GOLD VS NON-GOLD Behaviour and Cancellation Behaviour
 ```sql
 WITH member_items_ordered AS (
@@ -855,7 +855,7 @@ GROUP BY Membership_status;
 ```
 ---
 
-# Step 10.2: Zomato Wallet Users and Payment Mode Preferences
+### Step 10.2: Zomato Wallet Users and Payment Mode Preferences
 ```sql
 Select payment_mode, 
 CASE WHEN u.gold_member = 'Yes' THEN 'Gold Member'
