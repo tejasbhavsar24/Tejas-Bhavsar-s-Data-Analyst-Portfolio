@@ -395,9 +395,11 @@ layoff announcements.
 
 Generate sector-specific risk assessments for investors, region-specific employment impact analyses for policymakers, and safety warnings for job seekers in high-risk sectors. Build an early warning system flagging companies or sectors showing elevated layoff risk. Create executive summaries highlighting competitive intelligence for corporate strategists. Develop regional employment impact reports enabling local government workforce development planning.
 
+
 **4. Advanced Trend and Regression Analysis**
 
 In the future as I become more proficient, I would like to build Regression models to understand impact of Funding Raised, Share Prices, Tech Vs Non-Tech Nature and other factors i may have missed out on , and would like to understand which factors have a strong impact on the company going for layoffs, and which type of factors allow one to flag a company has high-risk for layoffs, and which factors are highly correlated to possibility of Layoffs.
 Furthermore I also plan to use time-series nature of the dataset for using Time Series Analysis Techniques like ARIMA to understand layoff over this 5-6 years time period to discover more patterns across time.
+
 ---
 
