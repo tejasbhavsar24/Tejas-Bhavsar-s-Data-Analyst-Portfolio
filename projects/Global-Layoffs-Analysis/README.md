@@ -381,37 +381,23 @@ Regional tech hub diversification reduces concentration risk. Policies supportin
 
 ## Next Steps
 
-**1. Advanced Visualization Layer**
+**1. Advanced Visualization**
 
 Create interactive dashboards showing layoff trends by year, industry, and country with drill-down capabilities. Enable viewers to filter by sector, stage, location, and date range. Visualize the rolling monthly total to highlight the crisis period (December 2022 – March 2023) and enable month-over-month growth analysis. Build geographic heat maps showing concentration in tier-1 cities and identify emerging secondary hubs where layoff risk is lower. Develop scatter plots correlating funds_raised_millions vs percentage_laid_off to identify capital efficiency patterns—which sectors with highest funding show lowest survival rates.
 
-**2. Predictive Modeling**
 
-Build a machine learning classification model identifying companies at high shutdown risk based on layoff magnitude, company stage, funding amount, and sector. Time-series forecasting on rolling monthly totals could have signaled the January 2023 crisis earlier, enabling advance policy response. Develop risk scoring models for investors assessing portfolio company stability. Create early warning systems flagging companies or sectors showing elevated layoff risk based on emerging patterns (funding velocity changes, hiring growth rates, sector-specific indicators).
-
-**3. Sector-Specific Deep Dives**
+**2. Sector-Specific Deep Dives**
 
 Conduct detailed analysis of Hardware, Consumer, and Finance sectors comparing unit economics, burn rates, and runway before layoff. Analyze whether companies conducting early, smaller layoffs outperformed those delaying large concentrated reductions. Identify which sectors recovered post-2023 versus those entering permanent contraction. Comparative analysis of top companies (Intel, Microsoft, Amazon, Meta) revealing strategic positioning and recovery trajectories across the period.
+layoff announcements.
 
-**4. Integration with External Data**
-
-Merge layoff data with stock price movements for public companies to quantify shareholder impact and correlation. Incorporate funding rounds data and runway estimates to model relationship between capital adequacy and layoff severity. Layer macroeconomic data (interest rates, GDP growth, venture funding volumes, tech hiring indices) to build systemic risk models identifying predictive lead indicators. Analyze news sentiment and earnings call transcripts to correlate with layoff announcements.
-
-**5. Stakeholder-Specific Reports**
+**3. Stakeholder-Specific Reports**
 
 Generate sector-specific risk assessments for investors, region-specific employment impact analyses for policymakers, and safety warnings for job seekers in high-risk sectors. Build an early warning system flagging companies or sectors showing elevated layoff risk. Create executive summaries highlighting competitive intelligence for corporate strategists. Develop regional employment impact reports enabling local government workforce development planning.
 
-**6. Interactive Query Tool**
+**4. Advanced Trend and Regression Analysis**
 
-Develop a self-service analytics interface enabling stakeholders to query layoff data by custom dimensions (company, country, industry, stage, date range, severity). Create scenario planning tools enabling what-if analysis (e.g., "what if interest rates rise 2% further"). Build peer benchmarking capability enabling companies to assess their own layoff patterns against industry and stage cohorts.
-
+In the future as I become more proficient, I would like to build Regression models to understand impact of Funding Raised, Share Prices, Tech Vs Non-Tech Nature and other factors i may have missed out on , and would like to understand which factors have a strong impact on the company going for layoffs, and which type of factors allow one to flag a company has high-risk for layoffs, and which factors are highly correlated to possibility of Layoffs.
+Furthermore I also plan to use time-series nature of the dataset for using Time Series Analysis Techniques like ARIMA to understand layoff over this 5-6 years time period to discover more patterns across time.
 ---
-
-## Conclusion
-
-This project serves as a foundation for deeper workforce analytics, economic modeling, and risk assessment across global technology and business sectors. The rigorous data cleaning and SQL methodology demonstrate a replicable framework for transforming real-world messy datasets into actionable business intelligence.
-
-The key insight across all findings is that layoffs are largely predictable events tied to macroeconomic cycles and competitive dynamics. Companies, investors, and policymakers can anticipate layoff waves 3-6 months in advance by monitoring leading indicators. Proactive planning—rather than reactive crisis management—enables more effective workforce transitions and economic resilience.
-
-The concentration of layoffs in specific geographies, industries, and company stages reveals that risk is not uniform. Strategic positioning in resilient sectors, geographies, and company stages dramatically improves employment and investment outcomes. This data-driven understanding of risk enables evidence-based decision-making across all stakeholder groups.
 
