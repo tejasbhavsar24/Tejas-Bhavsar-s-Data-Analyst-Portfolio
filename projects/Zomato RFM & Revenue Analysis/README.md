@@ -1,4 +1,4 @@
-# Zomato SQL Analytics – User Behaviour, Revenue, Funnel & RFM | July 2024 - June 2025 Dataset
+# Zomato Marketing and Performance Analysis Project: A User Behaviour, Revenue, Funnel & RFM Analysis of Zomato's Food Delivery Vertical | July 2024 - June 2025 Dataset
 ## 📌 Table of Contents
 
 - [Project Overview](#1-project-overview)
