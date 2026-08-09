@@ -4,15 +4,14 @@
 
 - [Project Overview](#1-project-overview)
 - [Tools Used and Key Assumptions](#2-tools-used-and-key-assumptions)
-- [Data Pipeline & Processing Workflow](#3-data-pipeline--processing-workflow)
-- [How to Run the Code](#4-how-to-run-the-code)
-- [Key Insights (Market Summary)](#5-key-insights-market-summary)
-  - [In-Demand Skills Across Data Roles](#51-in-demand-skills-across-data-roles)
-  - [Likelihood of Skills Requested in India](#52-likelihood-of-skills-requested-in-india)
-  - [Role-Wise Salary Distributions](#53-role-wise-salary-distributions)
-  - [Skill Pay vs. Demand Trade-offs](#54-skill-pay-vs-demand-trade-offs)
-- [Recommendations for Job Seekers & Professionals](#6-recommendations-for-job-seekers--professionals)
-- [My Role and Learnings](#7-my-role-and-learnings)
+- [Data Cleaning and EDA](#3-Data-Cleaning-&-EDA)
+- [Key Insights (Market Summary)](#4-key-insights-market-summary)
+  - [In-Demand Skills Across Data Roles](#41-in-demand-skills-across-data-roles)
+  - [Likelihood of Skills Requested in India](#42-likelihood-of-skills-requested-in-india)
+  - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
+  - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
+- [Recommendations for Job Seekers & Professionals](#5-recommendations-for-job-seekers--professionals)
+- [My Role and Learnings](#6-my-role-and-learnings)
 
 ---
 
@@ -59,9 +58,9 @@ In this project, various Python libraries and custom transformations are utilize
 
 ---
 
-## 3. Data Pipeline & Processing Workflow
+## 3. Data Cleaning and EDA
 
-The data preparation workflow consists of four core modular stages:
+The data preparation workflow consists of 3 core modular stages:
 
 ```python
 # 1. Loading & Parsing String Arrays into Native Python Lists
@@ -80,10 +79,82 @@ df_india_raw = df_raw[df_raw['job_country'] == 'India'].copy()
 
 # 3. Unrolling Skill Arrays for Row-Level Skill Frequency
 df_india = df_india_raw.explode('job_skills')
+```
+# Key Insights(Market Summary)
 
+Each Jupyter notebook in this project addresses a specific strategic question regarding the Indian data job market. Below is the step-by-step breakdown of the data processing pipelines, visualization scripts, and analyst-level market insights.
+
+---
+
+## 1. What are the most demanded skills for the top 3 data roles in India?
+
+### Methodology & Data Pipeline
+To determine the most requested technical competencies, raw job postings were filtered for the Indian market and exploded across individual skill elements. The dataset was aggregated by `job_title_short` to identify the three data roles with most job postings in India: **Data Engineer**, **Data Scientist**, and **Data Analyst**.
+
+To eliminate sample-size skew across roles with different total posting volumes, skill counts were normalized into a **Percentage Likelihood Metric** ($\text{Skills \%} = \frac{\text{Skill Count}}{\text{Total Job Postings for Role}} \times 100$). The top 5 skills per target role were then extracted and ordered for horizontal bar rendering.
+
+```python
+import pandas as pd
+import ast
+
+# 1. Unroll nested skill arrays into individual rows
+df_india = df_india_raw.explode('job_skills')
+
+# 2. Compute absolute skill frequency per role
+df_india_skill_counts = df_india.groupby(['job_title_short', 'job_skills']).size().reset_index(name='skill_count')
+
+# 3. Compute total unique postings per role
+df_job_india_count = df_india_raw.groupby('job_title_short').size().reset_index(name='jobs_total')
+
+# 4. Merge and calculate Percentage Likelihood
+df_perc_india = pd.merge(df_india_skill_counts, df_job_india_count, on='job_title_short', how='left')
+df_perc_india['skills_perc'] = (df_perc_india['skill_count'] / df_perc_india['jobs_total']) * 100
+
+# 5. Extract top 3 market roles by volume
+target_jobs = df_perc_india.groupby('job_title_short')['jobs_total'].max().sort_values(ascending=False).head(3).index.tolist()
+# Output: ['Data Engineer', 'Data Scientist', 'Data Analyst']
 # 4. Computing Percentage Likelihood per Role
 df_skill_counts = df_india.groupby(['job_title_short', 'job_skills']).size().reset_index(name='skill_count')
 df_job_counts = df_india_raw.groupby('job_title_short').size().reset_index(name='jobs_total')
 
 df_perc_india = pd.merge(df_skill_counts, df_job_counts, on='job_title_short', how='left')
 df_perc_india['skills_perc'] = (df_perc_india['skill_count'] / df_perc_india['jobs_total']) * 100
+
+```
+For visualization:
+``` python
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+
+fig, ax = plt.subplots(3,1, figsize = (12,15))
+for i , job in enumerate(target_jobs):
+    df_perc_india_targets = df_perc_india[df_perc_india['job_title_short']== job]
+    df_top5skills_india_target = df_perc_india_targets.sort_values(by='skills_perc',ascending = False).head(5)
+    df_plot_5skills_india_target = df_top5skills_india_target.sort_values(by='skills_perc',ascending = True)
+    df_plot_5skills_india_target.plot(
+        kind = 'barh',
+        color = 'teal',
+        y ='skills_perc',
+        x = 'job_skills',
+        ax = ax[i],
+        legend = False,
+        title = f'Likelihood of Skills Requested: {job} Jobs in India'
+    )
+    for index, row in df_plot_5skills_india_target.reset_index().iterrows():
+        val = row['skills_perc']
+        ax[i].text(x=val + 0.05, y=index, s=f"{val:.2f}%", va='center', fontsize=10)
+        
+    # Clean up axis metrics once per chart loop spin
+    ax[i].set_ylabel("")
+    ax[i].xaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
+```
+<img width="738" height="863" alt="download" src="https://github.com/user-attachments/assets/cfebf858-4ddc-4fc1-b75b-eeed850b639e" />
+
+Market Insights:
+Core Language Dominance: SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
+
+Role-specific focus: Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
+
+Python's Premium: Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
+
+  
