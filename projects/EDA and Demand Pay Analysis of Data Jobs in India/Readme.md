@@ -152,9 +152,9 @@ for i , job in enumerate(target_jobs):
 <img width="738" height="863" alt="download" src="https://github.com/user-attachments/assets/cfebf858-4ddc-4fc1-b75b-eeed850b639e" />
 
 Market Insights:
-- ** Programming Language Essential**: SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
+- **Programming Language Essential**: SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
   
-- **Python's Premium**: Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
+- **Python's Dominance**: Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
 
 - **Role-specific Focus**: Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
 
