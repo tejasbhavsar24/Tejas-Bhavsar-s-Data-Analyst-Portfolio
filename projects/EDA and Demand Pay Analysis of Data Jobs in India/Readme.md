@@ -85,8 +85,9 @@ df_india = df_india_raw.explode('job_skills')
 Each Jupyter notebook in this project addresses a specific strategic question regarding the Indian data job market. Below is the step-by-step breakdown of the data processing pipelines, visualization scripts, and analyst-level market insights.
 
 ---
-##  In-Demand Skills Across Data Roles
-4.1. What are the most demanded skills for the top 3 data roles in India?
+##  4.1. In-Demand Skills Across Data Roles
+This section answers the following question:
+What are the most demanded skills for the top 3 data roles in India?
 
 ### Methodology & Data Pipeline
 To determine the most requested technical competencies, raw job postings were filtered for the Indian market and exploded across individual skill elements. The dataset was aggregated by `job_title_short` to identify the three data roles with most job postings in India: **Data Engineer**, **Data Scientist**, and **Data Analyst**.
