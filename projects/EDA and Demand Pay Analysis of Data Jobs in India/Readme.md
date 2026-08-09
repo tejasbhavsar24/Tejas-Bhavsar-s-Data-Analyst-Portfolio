@@ -6,7 +6,7 @@
 - [Tools Used and Key Assumptions](#2-tools-used-and-key-assumptions)
 - [Data Cleaning and EDA](#3-Data-Cleaning-&-EDA)
 - [Key Insights (Market Summary)](#4-key-insights-market-summary)
-  - [In-Demand Skills Across Data Roles](#41-in-demand-skills-across-data-roles)
+  - [In-Demand Skills Across Data Roles](#41-What-are-the-most-demanded-skills-for-the-top-3-data-roles-in-India?)
   - [Likelihood of Skills Requested in India](#42-likelihood-of-skills-requested-in-india)
   - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
   - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
