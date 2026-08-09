@@ -73,4 +73,17 @@ dataset = load_dataset('lukebarousse/data_jobs')
 df_raw = dataset['train'].to_pandas()
 
 df_raw['job_posted_date'] = pd.to_datetime(df_raw['job_posted_date'])
-df_raw['job_skills'] = df_raw['job_skills'].apply
+df_raw['job_skills'] = df_raw['job_skills'].apply(lambda x: ast.literal_eval(x) if pd.notna(x) else x)
+
+# 2. Market Filtering
+df_india_raw = df_raw[df_raw['job_country'] == 'India'].copy()
+
+# 3. Unrolling Skill Arrays for Row-Level Skill Frequency
+df_india = df_india_raw.explode('job_skills')
+
+# 4. Computing Percentage Likelihood per Role
+df_skill_counts = df_india.groupby(['job_title_short', 'job_skills']).size().reset_index(name='skill_count')
+df_job_counts = df_india_raw.groupby('job_title_short').size().reset_index(name='jobs_total')
+
+df_perc_india = pd.merge(df_skill_counts, df_job_counts, on='job_title_short', how='left')
+df_perc_india['skills_perc'] = (df_perc_india['skill_count'] / df_perc_india['jobs_total']) * 100
