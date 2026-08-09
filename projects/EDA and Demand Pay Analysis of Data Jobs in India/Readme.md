@@ -3,7 +3,7 @@
 ## 📌 Table of Contents
 
 - [Project Overview](#1-project-overview)
-- [Python Libraries and Key Assumptions](#2-python-libraries-and-key-assumptions)
+- [Tools Used and Key Assumptions](#2-tools-used-and-key-assumptions)
 - [Data Pipeline & Processing Workflow](#3-data-pipeline--processing-workflow)
 - [How to Run the Code](#4-how-to-run-the-code)
 - [Key Insights (Market Summary)](#5-key-insights-market-summary)
@@ -32,7 +32,7 @@ The work is structured as a production‑style analytics project: Python based d
 
 ---
 
-## 3. Python Libraries and Key Assumptions
+## 2. Tools Used and Key Assumptions
 
 In this project, various Python libraries and custom transformations are utilized for extracting answers from raw job postings data.
 
@@ -59,7 +59,7 @@ In this project, various Python libraries and custom transformations are utilize
 
 ---
 
-## 4. Data Pipeline & Processing Workflow
+## 3. Data Pipeline & Processing Workflow
 
 The data preparation workflow consists of four core modular stages:
 
