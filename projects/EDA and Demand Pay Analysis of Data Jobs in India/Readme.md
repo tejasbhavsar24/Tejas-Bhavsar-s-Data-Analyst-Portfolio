@@ -1,4 +1,4 @@
-# India Data Job Market Analysis: Skill Demand, Compensation & Optimal Career Pathways | 2023–2024 Dataset
+# India Data Job Market Analysis: Skill Demand, Compensation & Optimal Career Pathways
 
 ## 📌 Table of Contents
 
