@@ -161,9 +161,9 @@ Market Insights:
 ---
 ## 4.2 Skill Trends in India
 This section answers the following question:
-How are In-Demand Skills Trending for Data Analysts in India?
+How are In-Demand Skills Trending for Data Analysts & Data Scientists in India?
 
-To understand how technical requirements evolved throughout 2023 for Indian Data Analysts, I analyzed the month-over-month trajectory of the most requested skills. This time-series analysis reveals whether a tool's popularity is seasonal, surging, or structurally consistent.
+To understand how technical requirements evolved throughout 2023 for Indian Data Analysts & Data Scientists, I analyzed the month-over-month trajectory of the most requested skills. This time-series analysis reveals whether a tool's popularity is seasonal, surging, or structurally consistent.
 
 ### Methodology & Data Pipeline
 
@@ -171,11 +171,13 @@ To accurately track monthly skill demand, the raw dataset underwent a structured
 
 1. **Imputation of Missing Values:** Missing numerical values for annual and hourly salaries were filled using overall dataset medians (`fillna()`). This preserves the maximum number of job posting records for skill analysis without introducing bias due to dropping out null values.
 2. **List Unpacking & Exploding:** Skills stored as text strings were safely evaluated into Python lists using `ast.literal_eval`. Using `.explode('job_skills')` transformed the data from "per-job" to "per-skill" level, enabling accurate frequency counting of job postings.
-3. **Target Filtering & Temporal Extraction:** The dataset was strictly filtered for `job_country == 'India'` and `job_title_short == 'Data Analyst'`. The `job_posted_date` was parsed to extract the month name (e.g., 'Jan', 'Feb') for a month-wise analysis.
-4. **Aggregation & Normalization:** To prevent months with higher overall hiring volumes from  skewing the trends, skill demand was normalized as a percentage of total data analyst jobs postings for that month. 
-5. **Pivoting & Chronological Reindexing:** Finally, the aggregated data was pivoted into a wide-format matrix for visualization.The final step was reindexing the rows chronologically (`Jan` to `Dec`), as standard Pandas defaults to alphabetical sorting for categorical strings like months.
+3. **Target Filtering & Temporal Extraction:** The dataset was strictly filtered for `job_country == 'India'` and `job_title_short == 'Data Analyst'` and
+   `job_title_short == 'Data Scientist'`. The `job_posted_date` was parsed to extract the month name (e.g., 'Jan', 'Feb') for a month-wise analysis.
+5. **Aggregation & Normalization:** To prevent months with higher overall hiring volumes from  skewing the trends, skill demand was normalized as a percentage of total data analyst jobs postings for that month. 
+6. **Pivoting & Chronological Reindexing:** Finally, the aggregated data was pivoted into a wide-format matrix for visualization.The final step was reindexing the rows chronologically (`Jan` to `Dec`), as standard Pandas defaults to alphabetical sorting for categorical strings like months.
 
 ```python
+# DATA ANALYST:
 # Aggregate monthly skill counts and calculate percentage of total jobs
 df_da_india_merge = pd.merge(df_da_india_month, df_total_da_jobs_india, on='month', how='left')
 df_da_india_merge['perc_skills'] = (df_da_india_merge['skill_count'] / df_da_india_merge['count']) * 100
@@ -187,6 +189,20 @@ df_da_pivot = df_da_india_merge.pivot_table(
 
 month_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 df_da_pivot = df_da_pivot.reindex(month_order)
+
+# DATA SCIENTIST:
+**Key Pipeline Code:**
+```python
+# Merge monthly skill counts with total Data Scientist postings
+df_india_merge_ds = pd.merge(df_india_month_ds, df_total_jobs_india_ds, on='month', how='left')
+
+# Calculate percentage representation to normalize demand
+df_india_merge_ds['perc_skills'] = (df_india_merge_ds['skill_count'] / df_india_merge_ds['count']) * 100
+
+# Pivot and force chronological order for the x-axis
+df_india_merge_pivot_ds = df_india_merge_ds.pivot_table(
+    index='month', columns='job_skills', values='perc_skills', aggfunc='mean'
+).fillna(0).reindex(month_order)
 ```
 
 **For visualization**:
@@ -219,6 +235,30 @@ for skill_name in df_da_line_plot.columns:
 sns.despine()
 plt.tight_layout()
 plt.show()
+
+fig, ax = plt.subplots(1, 1, figsize=(12, 14))
+df_india_skills_line_ds.plot(kind='line', ax=ax, linewidth=3)
+
+ax.set_xticks(range(len(df_india_skills_line_ds.index)))
+ax.set_xticklabels(df_india_skills_line_ds.index)
+ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
+ax.set_title("Top 5 Trending Skills for Data Scientists in India", fontsize=20, pad=10)
+ax.set_ylabel("Likelihood in Job Postings")
+ax.set_xlabel("Month")
+plt.legend().remove()
+
+# Expand x-axis limits to prevent label cropping
+ax.set_xlim(-0.5, 12.5)
+
+# Label lines directly at December values
+for i in range(5):
+    skill_name = df_india_skills_line_ds.columns[i]
+    final_val = df_india_skills_line_ds[skill_name].iloc[-1]
+    ax.text(x=11.2, y=final_val, s=f"{skill_name}", va='center', ha='left', fontsize=15)
+
+plt.tight_layout()
+plt.savefig('my_plot_ds.png', facecolor='white', transparent=False, bbox_inches='tight', dpi=300)
+plt.show()
 ```
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/d91942a6-bfd6-4d27-82f4-523d06373a8b" />
 
@@ -230,4 +270,18 @@ plt.show()
 
 **Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
 
-**Programming & BI Ecosystem Rising Demand**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
+**Programming & BI Becoming essential**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
+
+### Data Scientist Trend and Market Insights :
+In case of Data Scientist the trend slightly varies, with focus on cloud orchestration and cloud analytics, big data handling, advanced visualizations and programming
+<img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/aebeeb50-300d-446e-9ff4-85e99a391fbf" />
+
+**Python Dominating Indian Postings**: Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This dominance is driven by its necessity for big data handling with programming, its versatility across advanced machine learning trends, and its extensive library ecosystem.
+
+**SQL as the Data Foundation**: SQL holds a strong second place (around 9%–10%). It remains an essential foundation because Data Scientists must constantly extract, manipulate, and query vast amounts of information from structured databases before any advanced modeling can begin.
+
+**R for Complex Statistical Packages**: R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
+
+**AWS for Cloud Orchestration & Big Data Analytics**: The steady demand for AWS (around 4%) highlights the industry shift toward cloud computing. Organizations increasingly require Data Scientists to handle cloud orchestration, big data over cloud analytics, and the deployment of machine learning models into production environments.
+
+**Tableau for Visualization**: Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
