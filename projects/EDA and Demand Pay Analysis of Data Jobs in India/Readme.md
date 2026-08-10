@@ -7,7 +7,7 @@
 - [Data Cleaning and EDA](#3-Data-Cleaning-and-EDA)
 - [Key Insights (Market Summary)](#4-key-insightsmarket-summary)
   - [In-Demand Skills Across Data Roles](#41-in-demand-skills-across-data-roles)
-  - [Likelihood of Skills Requested in India](#42-likelihood-of-skills-requested-in-india)
+  - [Skill Trends in India](#42-skills-trends-in-india)
   - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
   - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
 - [Recommendations for Job Seekers & Professionals](#5-recommendations-for-job-seekers--professionals)
@@ -158,6 +158,71 @@ Market Insights:
 
 - **Role-specific Focus**: Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
 
+---
+## Skill Trends in India
+This section answers the following question:
+How are In-Demand Skills Trending for Data Analysts in India?
 
+To understand how technical requirements evolved throughout 2023 for Indian Data Analysts, I analyzed the month-over-month trajectory of the most requested skills. This time-series analysis reveals whether a tool's popularity is seasonal, surging, or structurally consistent.
 
-  
+### Methodology & Data Pipeline
+
+To accurately track monthly skill demand, the raw dataset underwent a structured transformation pipeline. Here is the technical reasoning behind the data processing steps:
+
+1. **Imputation of Missing Values:** Missing numerical values for annual and hourly salaries were filled using overall dataset medians (`fillna()`). This preserves the maximum number of job posting records for skill analysis without introducing bias due to dropping out null values.
+2. **List Unpacking & Exploding:** Skills stored as text strings were safely evaluated into Python lists using `ast.literal_eval`. Using `.explode('job_skills')` transformed the data from "per-job" to "per-skill" level, enabling accurate frequency counting of job postings.
+3. **Target Filtering & Temporal Extraction:** The dataset was strictly filtered for `job_country == 'India'` and `job_title_short == 'Data Analyst'`. The `job_posted_date` was parsed to extract the month name (e.g., 'Jan', 'Feb') for a month-wise analysis.
+4. **Aggregation & Normalization:** To prevent months with higher overall hiring volumes from  skewing the trends, skill demand was normalized as a percentage of total data analyst jobs postings for that month. 
+5. **Pivoting & Chronological Reindexing:** Finally, the aggregated data was pivoted into a wide-format matrix for visualization.The final step was reindexing the rows chronologically (`Jan` to `Dec`), as standard Pandas defaults to alphabetical sorting for categorical strings like months.
+
+```python
+# Aggregate monthly skill counts and calculate percentage of total jobs
+df_da_india_merge = pd.merge(df_da_india_month, df_total_da_jobs_india, on='month', how='left')
+df_da_india_merge['perc_skills'] = (df_da_india_merge['skill_count'] / df_da_india_merge['count']) * 100
+
+# Pivot into wide-format for plotting and sorting in a chronological order
+df_da_pivot = df_da_india_merge.pivot_table(
+    index='month', columns='job_skills', values='perc_skills', aggfunc='mean'
+).fillna(0)
+
+month_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
+df_da_pivot = df_da_pivot.reindex(month_order)
+```
+Visualizing the Trends
+To cleanly visualize these movements without charting clutter, I extracted the Top 5 overall skills for the year and plotted their monthly likelihood on a line chart.
+```python
+
+import matplotlib.pyplot as plt
+import matplotlib.ticker as mtick
+import seaborn as sns
+
+# Plotting the time-series trends
+fig, ax = plt.subplots(1, 1, figsize=(12, 6))
+df_da_line_plot.plot(kind='line', ax=ax, linewidth=3)
+
+# Formatting axes for clean executive presentation
+ax.set_xticks(range(len(df_da_line_plot.index)))
+ax.set_xticklabels(df_da_line_plot.index)
+ax.yaxis.set_major_formatter(mtick.PercentFormatter(decimals=0))
+ax.set_title("Top 5 Skill Trends for Data Analysts in India (2023)", fontsize=16, pad=15)
+ax.set_ylabel("Likelihood in Job Postings")
+ax.set_xlabel("Month")
+plt.legend().remove()
+
+# Direct line labeling at year-end data points (December)
+for skill_name in df_da_line_plot.columns:
+    final_val = df_da_line_plot[skill_name].iloc[-1]
+    ax.text(x=11.1, y=final_val, s=f" {skill_name}", va='center', ha='left', fontsize=11, fontweight='bold')
+
+sns.despine()
+plt.tight_layout()
+plt.show()
+```
+<img width="729" height="833" alt="image" src="https://github.com/user-attachments/assets/cdb43f82-3486-424b-b3d2-52cbc258eba6" />
+
+Market Insights
+**SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
+
+**Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
+
+**Programming & BI Ecosystem Rising Demand**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
