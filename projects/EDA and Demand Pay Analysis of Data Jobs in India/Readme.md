@@ -188,7 +188,8 @@ df_da_pivot = df_da_india_merge.pivot_table(
 month_order = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 df_da_pivot = df_da_pivot.reindex(month_order)
 ```
-Visualizing the Trends
+# Visualizing the Trends
+
 To cleanly visualize these movements without charting clutter, I extracted the Top 5 overall skills for the year and plotted their monthly likelihood on a line chart.
 ```python
 
