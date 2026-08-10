@@ -219,6 +219,7 @@ plt.tight_layout()
 plt.show()
 ```
 <img width="727" height="831" alt="image" src="https://github.com/user-attachments/assets/32bd12bd-9532-4c60-be38-a7db379b7998" />
+<img width="727" height="831" alt="image" src="https://github.com/user-attachments/assets/259070f3-18ee-4f48-9e97-04ced9f2b175" />
 
 
 Market Insights
