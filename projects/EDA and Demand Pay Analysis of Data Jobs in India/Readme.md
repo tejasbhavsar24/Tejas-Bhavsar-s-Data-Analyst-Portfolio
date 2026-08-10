@@ -159,7 +159,7 @@ Market Insights:
 - **Role-specific Focus**: Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
 
 ---
-## Skill Trends in India
+## 4.2 Skill Trends in India
 This section answers the following question:
 How are In-Demand Skills Trending for Data Analysts in India?
 
