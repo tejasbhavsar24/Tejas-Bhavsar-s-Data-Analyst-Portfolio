@@ -218,7 +218,8 @@ sns.despine()
 plt.tight_layout()
 plt.show()
 ```
-<img width="729" height="833" alt="image" src="https://github.com/user-attachments/assets/cdb43f82-3486-424b-b3d2-52cbc258eba6" />
+<img width="727" height="831" alt="image" src="https://github.com/user-attachments/assets/a313aa0c-2a9e-42f8-ba7a-071d4bf9e4da" />
+
 
 Market Insights
 **SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
