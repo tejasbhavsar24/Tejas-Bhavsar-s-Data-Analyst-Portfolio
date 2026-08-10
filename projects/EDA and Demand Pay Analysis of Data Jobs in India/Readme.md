@@ -267,20 +267,21 @@ Data Analysts jobs in India require proficiency in data querying and extraction,
 
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/d91942a6-bfd6-4d27-82f4-523d06373a8b" />
 
-**SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
+- **SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
 
-**Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
+- **Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
 
-**Programming & BI Becoming essential**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
+- **Programming & BI Becoming essential**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
 
 ### Data Scientist Trend and Market Insights :
 In case of Data Scientist the trend slightly varies, with focus on cloud orchestration and cloud analytics, big data handling, advanced visualizations and programming.
+
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/aebeeb50-300d-446e-9ff4-85e99a391fbf" />
 
-**Python Dominating Indian Postings**: Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This dominance is driven by its necessity for big data handling with programming, its versatility across advanced machine learning trends, and its extensive library ecosystem.
+- **Python Dominating Indian Postings**: Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This dominance is driven by its necessity for big data handling with programming, its versatility across advanced machine learning trends, and its extensive library ecosystem.
 
-**R for Complex Statistical Packages**: R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
+- **R for Complex Statistical Packages**: R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
 
-**AWS for Cloud Orchestration & Big Data Analytics**: The steady demand for AWS (around 4%) highlights the industry shift toward cloud computing. Organizations increasingly require Data Scientists to handle cloud orchestration, big data over cloud analytics, and the deployment of machine learning models into production environments.
+- **AWS for Cloud Orchestration & Big Data Analytics**: The steady demand for AWS (around 4%) highlights the industry shift toward cloud computing. Organizations increasingly require Data Scientists to handle cloud orchestration, big data over cloud analytics, and the deployment of machine learning models into production environments.
 
-**Tableau for Visualization**: Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
+- **Tableau for Visualization**: Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
