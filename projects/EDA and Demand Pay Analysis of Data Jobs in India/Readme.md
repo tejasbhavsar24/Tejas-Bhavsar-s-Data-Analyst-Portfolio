@@ -7,7 +7,7 @@
 - [Data Cleaning and EDA](#3-Data-Cleaning-and-EDA)
 - [Key Insights (Market Summary)](#4-key-insightsmarket-summary)
   - [In-Demand Skills Across Data Roles](#41-in-demand-skills-across-data-roles)
-  - [Skill Trends in India](#42-skills-trends-in-india)
+  - [Skill Trends in India](#42-skill-trends-in-india)
   - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
   - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
 - [Recommendations for Job Seekers & Professionals](#5-recommendations-for-job-seekers--professionals)
