@@ -150,7 +150,8 @@ for i , job in enumerate(target_jobs):
 ```
 <img width="738" height="863" alt="download" src="https://github.com/user-attachments/assets/cfebf858-4ddc-4fc1-b75b-eeed850b639e" />
 
-Market Insights:
+**Market Insights** :
+
 - **Programming Language Essential**: SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
   
 - **Python's Dominance**: Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
