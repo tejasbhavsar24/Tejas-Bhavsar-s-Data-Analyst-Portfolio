@@ -10,8 +10,7 @@
   - [Skill Trends in India](#42-skill-trends-in-india)
   - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
   - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
-- [Recommendations for Job Seekers & Professionals](#5-recommendations-for-job-seekers--professionals)
-- [My Role and Learnings](#6-my-role-and-learnings)
+- [My Role and Learnings](#5-my-role-and-learnings)
 
 ---
 
@@ -210,6 +209,8 @@ df_india_merge_pivot_ds = df_india_merge_ds.pivot_table(
 To cleanly visualize these movements without charting clutter, I extracted the Top 5 overall skills for the year and plotted their monthly likelihood on a line chart.
 ```python
 
+## DATA ANALYSTS :
+
 import matplotlib.pyplot as plt
 import matplotlib.ticker as mtick
 import seaborn as sns
@@ -236,6 +237,8 @@ sns.despine()
 plt.tight_layout()
 plt.show()
 
+## DATA SCIENTISTS :
+
 fig, ax = plt.subplots(1, 1, figsize=(12, 14))
 df_india_skills_line_ds.plot(kind='line', ax=ax, linewidth=3)
 
@@ -246,11 +249,9 @@ ax.set_title("Top 5 Trending Skills for Data Scientists in India", fontsize=20, 
 ax.set_ylabel("Likelihood in Job Postings")
 ax.set_xlabel("Month")
 plt.legend().remove()
-
-# Expand x-axis limits to prevent label cropping
 ax.set_xlim(-0.5, 12.5)
 
-# Label lines directly at December values
+# Labelling:
 for i in range(5):
     skill_name = df_india_skills_line_ds.columns[i]
     final_val = df_india_skills_line_ds[skill_name].iloc[-1]
@@ -260,11 +261,11 @@ plt.tight_layout()
 plt.savefig('my_plot_ds.png', facecolor='white', transparent=False, bbox_inches='tight', dpi=300)
 plt.show()
 ```
+
+### Data Analyst Trend & Market Insights :
+Data Analysts jobs in India require proficiency in data querying and extraction, mastery over spreadsheets for data exploration and ability to visualize and present the data trends and insigts to stakeholders, hence focus in on Excel, SQL and BI Tools. Python helps them command a premium as an analyst in India, with many postings adding the skill as a requirement along with Excel, SQL & Power BI.
+
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/d91942a6-bfd6-4d27-82f4-523d06373a8b" />
-
-
-
-### Market Insights
 
 **SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
 
@@ -273,12 +274,10 @@ plt.show()
 **Programming & BI Becoming essential**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
 
 ### Data Scientist Trend and Market Insights :
-In case of Data Scientist the trend slightly varies, with focus on cloud orchestration and cloud analytics, big data handling, advanced visualizations and programming
+In case of Data Scientist the trend slightly varies, with focus on cloud orchestration and cloud analytics, big data handling, advanced visualizations and programming.
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/aebeeb50-300d-446e-9ff4-85e99a391fbf" />
 
 **Python Dominating Indian Postings**: Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This dominance is driven by its necessity for big data handling with programming, its versatility across advanced machine learning trends, and its extensive library ecosystem.
-
-**SQL as the Data Foundation**: SQL holds a strong second place (around 9%–10%). It remains an essential foundation because Data Scientists must constantly extract, manipulate, and query vast amounts of information from structured databases before any advanced modeling can begin.
 
 **R for Complex Statistical Packages**: R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
 
