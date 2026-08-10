@@ -218,7 +218,7 @@ sns.despine()
 plt.tight_layout()
 plt.show()
 ```
-<img width="727" height="831" alt="image" src="https://github.com/user-attachments/assets/a313aa0c-2a9e-42f8-ba7a-071d4bf9e4da" />
+<img width="727" height="831" alt="image" src="https://github.com/user-attachments/assets/7fab88f7-78b4-4c92-9e11-31b765fb5e6d" />
 
 
 Market Insights
