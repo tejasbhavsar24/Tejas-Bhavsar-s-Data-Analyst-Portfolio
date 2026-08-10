@@ -1,4 +1,4 @@
-<img width="856" height="1000" alt="image" src="https://github.com/user-attachments/assets/2e1adee3-3074-428e-9da7-477a248295f4" /># India Data Job Market Analysis: Skill Demand, Compensation & Optimal Career Pathways
+<img width="856" height="1000" alt="image" src="https://github.com/user-attachments/assets/ff65802b-3a32-4fbe-aa62-5d322f1ea26e" /># India Data Job Market Analysis: Skill Demand, Compensation & Optimal Career Pathways
 
 ## 📌 Table of Contents
 
@@ -218,7 +218,8 @@ sns.despine()
 plt.tight_layout()
 plt.show()
 ```
-<img width="856" height="1000" alt="image" src="https://github.com/user-attachments/assets/4d5d743e-2992-4ea3-a81a-1667d431809f" />
+<img width="856" height="1000" alt="image" src="https://github.com/user-attachments/assets/4592c1b3-493f-4ca2-8e72-44a0c862f85b" />
+
 
 
 
