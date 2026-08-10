@@ -224,7 +224,8 @@ plt.show()
 
 
 
-Market Insights
+### Market Insights
+
 **SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
 
 **Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
