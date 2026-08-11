@@ -152,11 +152,11 @@ for i , job in enumerate(target_jobs):
 
 **Market Insights** :
 
-- **Programming Language Essential**: SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
+- SQL and Python form the non-negotiable technical floor across the Indian market. SQL appears in 72.32% of Data Engineering roles, while Python leads Data Science requirements at an overwhelming 80.39% market penetration.
   
-- **Python's Dominance**: Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
+- Python is the most versatile language across all three roles, holding top-tier positioning in Data Science (80.39%), Data Engineering (64.39%), and Data Analytics (~45%), making it the single highest-ROI programming language to learn as data job aspirant for higher chance of landing such a role.
 
-- **Role-specific Focus**: Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
+- Data Engineering roles in India demand heavy distributed systems and cloud orchestration expertise—specifically Spark (39.84%) and AWS (38.92%). In contrast, Data Analytics roles emphasize downstream consumption, EDL and Data Visualization tools like Power BI, Tableau, and Excel. Data Scientist appears to blend requirements from both fields. This indicates an analyst or data engineer aspirant should avoid trying to enter inot both streams, rather Data Scientist would be a better fit - as a substitute or secondary role for Data Engineers and future position to strive for in case of Data Analysts. Cloud and Orchestation tools have different learning needs than visualization tools, so its difficult for data Engineer or Data Analyst to focus on skill learning for both paths simulatenously, and shoudl aim at data scientist roles as secondary/backup career roles. 
 
 ---
 ## 4.2 Skill Trends in India
@@ -268,21 +268,133 @@ Data Analysts jobs in India require proficiency in data querying and extraction,
 
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/d91942a6-bfd6-4d27-82f4-523d06373a8b" />
 
-- **SQL - The Must Have Skill**: SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
+- SQL maintains a lead throughout the entire year, consistently appearing as the dominant requirement in Indian Data Analyst job descriptions. It shows zero signs of obsolescence or replacement by drag-and-drop BI tools and AI. For any job as data analyst having command over SQL is a must for getting "foot-in-the-door" in any analyst job-interview.
 
 - **Spreadsheets**: Excel demand experiences steady consistency across all quarters, proving that despite the rise of automated dashboards and programming languages, Indian enterprises still heavily rely on foundational spreadsheet manipulation for ad-hoc operational reporting. The skill has survived technological phases, and is still the most basic skill needed.
 
-- **Programming & BI Becoming essential**: Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects. Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
+- Python, alongside visualization tools like Tableau and Power BI, display relatively stable demand trajectories. Power BI demonstrates a slight competitive edge in the Indian market, perhaps due to alignment with domestic corporate preferences for integrating into broader Microsoft enterprise ecosystems (Azure, Office 365) and preference for it, given its close relationship and similarity with Excel in various aspects.
+  
+- Python and BI tools are differentials for data analyst jobs, with many new tasks requiring the analyst to utilize these.
 
 ### Data Scientist Trend and Market Insights :
 In case of Data Scientist the trend slightly varies, with focus on cloud orchestration and cloud analytics, big data handling, advanced visualizations and programming.
 
 <img width="1189" height="1389" alt="image" src="https://github.com/user-attachments/assets/aebeeb50-300d-446e-9ff4-85e99a391fbf" />
 
-- **Python Dominating Indian Postings**: Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This dominance is driven by its necessity for big data handling with programming, its versatility across advanced machine learning trends, and its extensive library ecosystem.
+- Python maintains a massive and consistent lead (hovering around 13%–14%) across the year. This is driven by its versatility across data analysis, big data handling with programming, and ability for training models for advanced machine learning trends, and its extensive library ecosystem.
 
-- **R for Complex Statistical Packages**: R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
+- R maintains a stable demand trajectory (around 6%). Built specifically for statistical computing, R is favored for deep statistical analysis, research applications, and utilizing complex statistical packages.
 
-- **AWS for Cloud Orchestration & Big Data Analytics**: The steady demand for AWS (around 4%) highlights the industry shift toward cloud computing. Organizations increasingly require Data Scientists to handle cloud orchestration, big data over cloud analytics, and the deployment of machine learning models into production environments.
+- Cloud like AWS has some demand (around 4%), which highlights the industry shift toward cloud computing. Organizations increasingly require Data Scientists to handle cloud orchestration, big data over cloud analytics, and the deployment of machine learning models into production environments.
 
-- **Tableau for Visualization**: Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
+- Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
+
+  ## 4.3 Data Role in India: Skill Demand-Pay Analysis for Data Analysts and Data Scientists:
+This section seeks to answer the question around:
+- How Well Do Data Roles and Skills Pay in India?
+- What are the most paying skills and most demanded skills within highest-paying data jobs
+
+To understand salary expectations and the actual financial value of learning specific skills, I filtered the dataset for job postings in India. I replaced missing salary values with the dataset's median, exploded the skills arrays into individual rows, and grouped the data to compare the top two roles: **Data Scientists** and **Data Analysts**.
+
+### The Salary Bias Problem and AI Calibration
+Raw job postings sourced from global boards suffer from a "disclosure bias". In the Indian market, jobs that explicitly list salaries usually skew toward US-based multinational companies or remote roles paying in USD. Using raw USD averages drastically overstates what a typical domestic role pays. Many times Indian Companies do not release a salary band - hence salary in USD terms in far away from reality. 
+
+To fix this, I used help of Generative AI for conducting research on Statistical techniques for normalization of this data. The research suggests a model translates global USD benchmarks into realistic domestic Indian (INR) compensation bands using two-fold approach - converting using purchasing power and local market ratios:
+
+$$\text{Effective Domestic Factor} = \text{PPP Factor} \times \text{Domestic Ratio} = \left(\frac{23.5}{100{,}000}\right) \times 0.447 \approx \frac{10.5}{100{,}000}$$
+
+
+### Code Snippet: Data Preparation and Aggregation
+Below is the core pipeline used to clean the data, unroll the nested skills, and calculate both the demand (volume) and median pay (value) for Data Analysts. 
+
+```python
+import pandas as pd
+import ast
+
+# 1. Clean data: Replace null salaries with medians and filter for India
+median_average = df_raw[['salary_hour_avg', 'salary_year_avg']].median()
+df_raw[['salary_year_avg', 'salary_hour_avg']] = df_raw[['salary_year_avg', 'salary_hour_avg']].fillna(median_average)
+df_india = df_raw[df_raw['job_country'] == 'India'].dropna(subset=['salary_year_avg'])
+
+# 2. Explode skills from arrays into individual rows
+df_india_clean = df_india.copy()
+df_india_clean['job_skills'] = df_india_clean['job_skills'].apply(
+    lambda x: ast.literal_eval(x) if isinstance(x, str) else x
+)
+df_india_explode = df_india_clean.explode('job_skills')
+
+# 3. Aggregate Demand (Count) and Pay (Median) for Data Analysts
+df_india_da = df_india_explode[df_india_explode['job_title_short'] == 'Data Analyst']
+df_india_da_skills = df_india_da.groupby('job_skills')['salary_year_avg'].agg(
+    median_value='median', 
+    skill_count='size'
+).copy()
+
+# 4. Filter for highest paying skills with statistical reliability (Count >= 8)
+df_india_da_payskills = df_india_da_skills.query('skill_count >= 8').sort_values(by='median_value', ascending=False)
+
+# 5. Define Econometric Calibration Factors
+PPP_FACTOR = 23.5 / 100000  # Purchasing Power Parity factor
+DOMESTIC_RATIO = 0.447      # Domestic market parity adjustment ratio
+EFFECTIVE_DOMESTIC_FACTOR = PPP_FACTOR * DOMESTIC_RATIO  # ~10.5 / 100000
+
+#6. Applying calibration into actual vizualization:
+import matplotlib.pyplot as plt
+import seaborn as sns
+import matplotlib.ticker as mtick
+
+# Calibration Factors
+PPP_FACTOR = 23.5 / 100000
+DOMESTIC_RATIO = 0.447
+EFFECTIVE_DOMESTIC_FACTOR = PPP_FACTOR * DOMESTIC_RATIO  # ~10.5 / 100000
+
+fig, ax = plt.subplots(figsize=(12, 6))
+
+sns.violinplot(
+    data=df_top_salaryindia,
+    x='salary_year_avg',
+    y='job_title_short',
+    order=df_top_salary_jobs,
+    ax=ax,
+    palette='Blues_r',
+    cut=0
+)
+
+
+plt.title('Salary Distributions for Top Data & Tech Jobs in India (Domestic INR)', fontsize=14, pad=15)
+plt.xlabel('Annual Average Salary (INR Lakhs)')
+plt.ylabel('')
+
+plt.xlim(0, 300000) 
+
+
+ticks_x = mtick.FuncFormatter(lambda y, pos: f"₹{int(y * EFFECTIVE_DOMESTIC_FACTOR)}L")
+ax.xaxis.set_major_formatter(ticks_x)
+
+sns.despine()
+plt.tight_layout()
+plt.show()
+```
+<img width="856" height="424" alt="image" src="https://github.com/user-attachments/assets/1fc9dcb0-a9da-4cde-8b42-39a243d6399b" />
+
+### Market Overview:
+The violin charts indicate overall salary distributions calibrated for the Indian market:
+
+- Data Scientists command a higher overall median salary (spanning ₹12.0L – ₹16.0L LPA). The data shows a much wider variance and higher outliers, reflecting the immense financial value placed on advanced machine learning and AI experience.
+- Data Analysts demonstrate a highly consistent, tightly packed salary band (centering around ₹10.5L LPA) with fewer extreme outliers, indicating a stable and standardized market rate.
+- Machine Learning Engineers have very low job posts in the data, hence they appear to have very low median salary lower salary extremes , whereas reality is they much more highly paid in India than an average Data Analyst.
+
+### Data Analyst - Skill Pay-Demand Analysis & Market Insights:
+<img width="1072" height="424" alt="image" src="https://github.com/user-attachments/assets/47d47fa8-d929-4098-a52b-8fa56d9c70e5" />
+
+- The left graph highlights that foundational skills like SQL (46 postings), Excel (39 postings), and Python (36 postings) are the most in-demand, serving as core requirements for employability in analytics.
+- The right graph shows that visualization and big data tools like Power BI, Spark, and Tableau are associated with the highest salaries (reaching up to ₹11.68L LPA).
+- There is a clear intersection here: SQL, Python, and BI tools are both highly demanded AND high paying. This demonstrates that the Business Intelligence (BI) track is the most popular and lucrative pathway for aspiring analysts. The ability to build data models, write DAX, design Tableau dashboards, and present visually powered insights is exactly what makes analysts stand out and maximizes their earning potential.
+
+  ### Data Scientist - Skill Pay-Demand Analysis & Market Insights:
+<img width="1069" height="424" alt="image" src="https://github.com/user-attachments/assets/6cf89e78-ac10-4fe3-952e-b9d905f7d960" />
+
+- The left graph shows that Python (64 postings) and SQL (49 postings) are overwhelmingly the most in-demand skills for Data Scientists, alongside R (30 postings).
+- The right graph highlights that specialized technical frameworks and cloud orchestration tools like Azure (₹16.55L LPA) and PyTorch (₹16.55L LPA) sit at the very top of the pay scale.
+- There is a clear distinction between the skills that are most requested and those that are highest paid. While Python and SQL are mandatory baselines, Data Scientists aiming to increase their market value must move beyond standard programming and gain expertise in machine learning models, deep learning architectures (PyTorch, TensorFlow, Keras) and cloud infrastructure (Azure, AWS).
+- Data Scientist would need Python, SQL and statistical tools and programming knowledge to get an entry-level position but their growth and higher-paying opportunities would require them choose sepcialized stream - the median pay big data and cloud analytics focus or shift towards AI/ML Track with greater demand and pay for more advanced and high-ceiling skills.  
