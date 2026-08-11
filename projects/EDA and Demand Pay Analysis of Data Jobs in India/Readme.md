@@ -375,7 +375,8 @@ sns.despine()
 plt.tight_layout()
 plt.show()
 ```
-<img width="856" height="424" alt="image" src="https://github.com/user-attachments/assets/1fc9dcb0-a9da-4cde-8b42-39a243d6399b" />
+<img width="1189" height="590" alt="image" src="https://github.com/user-attachments/assets/fff38932-c064-4e0f-845a-ba598d7e6202" />
+
 
 ### Market Overview:
 The violin charts indicate overall salary distributions calibrated for the Indian market:
