@@ -8,8 +8,8 @@
 - [Key Insights (Market Summary)](#4-key-insightsmarket-summary)
   - [In-Demand Skills Across Data Roles](#41-in-demand-skills-across-data-roles)
   - [Skill Trends in India](#42-skill-trends-in-india)
-  - [Role-Wise Salary Distributions](#43-role-wise-salary-distributions)
-  - [Skill Pay vs. Demand Trade-offs](#44-skill-pay-vs-demand-trade-offs)
+  - [Skill Pay vs. Demand Trade-offs](#43-skill-pay-vs-demand-trade-offs)
+  - [Role-wise Optimal Skill-Matrix](#44-role-wise-optimal-skill-matrix)
 - [My Role and Learnings](#5-my-role-and-learnings)
 
 ---
