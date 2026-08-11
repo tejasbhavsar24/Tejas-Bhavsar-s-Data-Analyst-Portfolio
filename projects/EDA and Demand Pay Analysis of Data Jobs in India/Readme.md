@@ -406,8 +406,8 @@ The violin charts indicate overall salary distributions calibrated for the India
 ## 4.4 Role-wise Optimal Skill-Matrix
 
 ### Strategic Analysis: Data Analyst Matrix
+<img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/12dde913-500b-428a-8cff-521a8c36aab6" />
 
-<img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/2e0b95f9-ce52-42f5-9c0b-4a1a47aa5ce3" />
 
 The Optimal Skill Matrix for Data Analysts reveals a highly structured market divided between foundational requirements and premium specializations. The x-axis represents how often a skill is requested, while the y-axis (and vertical bars) represent the calibrated domestic salary range from the 25th to 75th percentiles.
 
