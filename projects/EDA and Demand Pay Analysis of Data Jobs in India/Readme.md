@@ -289,7 +289,7 @@ In case of Data Scientist the trend slightly varies, with focus on cloud orchest
 
 - Tracking closely with AWS, Tableau demonstrates that extracting advanced trends must be paired with clear data visualization. Creating interactive dashboards and visual storytelling remains a critical end-step for communicating complex business insights to stakeholders.
 
-  ## 4.3 Data Role in India: Skill Demand-Pay Analysis for Data Analysts and Data Scientists:
+  ## 4.3 Skill Pay vs. Demand Trade-offs
 This section seeks to answer the question around:
 - How Well Do Data Roles and Skills Pay in India?
 - What are the most paying skills and most demanded skills within highest-paying data jobs
@@ -385,16 +385,19 @@ The violin charts indicate overall salary distributions calibrated for the India
 - Machine Learning Engineers have very low job posts in the data, hence they appear to have very low median salary lower salary extremes , whereas reality is they much more highly paid in India than an average Data Analyst.
 
 ### Data Analyst - Skill Pay-Demand Analysis & Market Insights:
-<img width="1072" height="424" alt="image" src="https://github.com/user-attachments/assets/47d47fa8-d929-4098-a52b-8fa56d9c70e5" />
+<img width="1490" height="589" alt="image" src="https://github.com/user-attachments/assets/5ea566d3-863e-4919-ab1a-bed2d6906c2b" />
+
 
 - The left graph highlights that foundational skills like SQL (46 postings), Excel (39 postings), and Python (36 postings) are the most in-demand, serving as core requirements for employability in analytics.
 - The right graph shows that visualization and big data tools like Power BI, Spark, and Tableau are associated with the highest salaries (reaching up to ₹11.68L LPA).
 - There is a clear intersection here: SQL, Python, and BI tools are both highly demanded AND high paying. This demonstrates that the Business Intelligence (BI) track is the most popular and lucrative pathway for aspiring analysts. The ability to build data models, write DAX, design Tableau dashboards, and present visually powered insights is exactly what makes analysts stand out and maximizes their earning potential.
 
   ### Data Scientist - Skill Pay-Demand Analysis & Market Insights:
-<img width="1069" height="424" alt="image" src="https://github.com/user-attachments/assets/6cf89e78-ac10-4fe3-952e-b9d905f7d960" />
+<img width="1485" height="589" alt="image" src="https://github.com/user-attachments/assets/b8b19a47-43d1-412d-b29a-8089b204a73e" />
 
 - The left graph shows that Python (64 postings) and SQL (49 postings) are overwhelmingly the most in-demand skills for Data Scientists, alongside R (30 postings).
 - The right graph highlights that specialized technical frameworks and cloud orchestration tools like Azure (₹16.55L LPA) and PyTorch (₹16.55L LPA) sit at the very top of the pay scale.
 - There is a clear distinction between the skills that are most requested and those that are highest paid. While Python and SQL are mandatory baselines, Data Scientists aiming to increase their market value must move beyond standard programming and gain expertise in machine learning models, deep learning architectures (PyTorch, TensorFlow, Keras) and cloud infrastructure (Azure, AWS).
-- Data Scientist would need Python, SQL and statistical tools and programming knowledge to get an entry-level position but their growth and higher-paying opportunities would require them choose sepcialized stream - the median pay big data and cloud analytics focus or shift towards AI/ML Track with greater demand and pay for more advanced and high-ceiling skills.  
+- Data Scientist would need Python, SQL and statistical tools and programming knowledge to get an entry-level position but for higher-paying growth opportunities, candidates should pursue one of two specialized, high-ceiling tracks:
+  1. **The AI/ML Track:** Gaining expertise in advanced machine learning models and deep learning architectures (PyTorch, TensorFlow, Keras).
+  2. **The Cloud & Big Data Track:** Mastering enterprise cloud infrastructure (Azure, AWS) to manage and deploy models at scale.
