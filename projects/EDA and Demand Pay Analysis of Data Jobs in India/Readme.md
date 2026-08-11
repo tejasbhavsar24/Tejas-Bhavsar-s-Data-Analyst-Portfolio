@@ -406,7 +406,7 @@ The violin charts indicate overall salary distributions calibrated for the India
 ## 4.4 Role-wise Optimal Skill-Matrix
 
 ### Strategic Analysis: Data Analyst Matrix
-<img width="1248" height="568" alt="image" src="https://github.com/user-attachments/assets/86202ed7-e0d0-456f-a7fb-65fd5105ca31" />
+<img width="2500" height="568" alt="image" src="https://github.com/user-attachments/assets/86202ed7-e0d0-456f-a7fb-65fd5105ca31" />
 
 
 The Optimal Skill Matrix for Data Analysts reveals a highly structured market divided between foundational requirements and premium specializations. The x-axis represents how often a skill is requested, while the y-axis (and vertical bars) represent the calibrated domestic salary range from the 25th to 75th percentiles.
@@ -416,7 +416,7 @@ Foundational querying and programming languages—specifically SQL and Python—
 The true financial leverage for a Data Analyst lies in the Business Intelligence and data modeling track. Tools like Power BI, Looker, and Tableau occupy the upper-left quadrant of the matrix. While they appear in fewer overall job postings than SQL, they command a significant salary premium. Organizations are willing to pay top-of-market rates for analysts who can bridge the gap between raw data extraction and visual executive storytelling. Aspiring analysts should secure their foundation in SQL, but their upward mobility and highest earning potential will dictate mastering DAX, data modeling, and enterprise dashboarding.
 
 ### Strategic Analysis: Data Scientist Matrix
-<img width="1248" height="568" alt="image" src="https://github.com/user-attachments/assets/4de3e7f2-ae82-414f-b38f-9c878618813f" />
+<img width="2500" height="568" alt="image" src="https://github.com/user-attachments/assets/4de3e7f2-ae82-414f-b38f-9c878618813f" />
 
 
 Transitioning to the Data Scientist matrix, the market dynamics shift heavily toward advanced programming and scalable infrastructure.
