@@ -422,7 +422,7 @@ When evaluating the premium upper-left quadrant, we see highly lucrative AI fram
 
 The true optimal point for maximizing both financial growth and job security lies slightly closer to the center of the matrix. Skills like Spark and AWS sit in an incredibly advantageous position. They offer a strong salary premium (averaging ₹14L–₹15L LPA) while maintaining a much safer market demand (20%–25%). For a Data Scientist aiming to secure their future in the Indian market, the most beneficial blend is anchoring heavily in Python and SQL to ensure consistent interview opportunities, while layering on big data frameworks (Spark) or cloud deployment (AWS). This specific combination bridges the gap between pure statistical modeling and data engineering, which is currently the most heavily recruited and highly compensated hybrid skill set in the country.
 
-## 5. Challenges Faced and Personal Learnings:
+# 5. Challenges Faced and Personal Learnings:
 
 The most significant hurdle encountered during this analysis was the inherent Missing Not At Random (MNAR) disclosure bias within the dataset. Because local domestic enterprises rarely publish salary bands publicly, the raw figures were heavily skewed by US-headquartered multinational corporations and foreign remote roles. Evaluating these raw USD figures directly would have drastically overstated realistic domestic salaries, rendering the entire matrix unusable for a local context. 
 
@@ -453,7 +453,7 @@ The result is the final output for the Data Analyst Optimal Matrix for example n
 
 <img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/3712a95d-8ed4-4b40-b741-5319f0b22e75" />
 
-# Learnings:
+  ## Learnings:
  From this project, I practiced and demonstrated end-to-end data analytics by 
 1. Writing production-style Python Scripts and  complete scripts handling date-time functions and data type conversions for temporal analysis.
 2. Unpacking lists and using lambda functions for custom data manipulation and analysis.
