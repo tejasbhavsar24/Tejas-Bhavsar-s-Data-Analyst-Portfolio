@@ -10,7 +10,7 @@
   - [Skill Trends in India](#42-skill-trends-in-india)
   - [Skill Pay vs. Demand Trade-offs](#43-skill-pay-vs-demand-trade-offs)
   - [Role-wise Optimal Skill-Matrix](#44-role-wise-optimal-skill-matrix)
-- [My Role and Learnings](#5-my-role-and-learnings)
+- [Challenges Faced and Personal Learnings](#5-challenges-faced-and-personal-learnings)
 
 ---
 
@@ -404,24 +404,61 @@ The violin charts indicate overall salary distributions calibrated for the India
   2. **The Cloud & Big Data Track:** Mastering enterprise cloud infrastructure (Azure, AWS) to manage and deploy models at scale.
 
 ## 4.4 Role-wise Optimal Skill-Matrix
+Optimal Skill-Pay Matrix is about cautioning against chasing highest-paying tools, rather building a future-proof and growing data career. This requires finding the "Optimal Spot" where a skill provides enough market demand to guarantee job security, alongside a high enough salary to maximize your earning potential. 
 
 ### Strategic Analysis: Data Analyst Matrix
 <img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/12dde913-500b-428a-8cff-521a8c36aab6" />
 
+Looking at the Data Analyst scatter plot, the x-axis represents  job stability (demand), while the y-axis represents the financial leverage offered by a skill (salary potential). SQL, Excel, and Python sit completely isolated on the far right. These are your foundational anchors. While they hover near the market median for compensation, their massive market share provides the ultimate safety net for employability. It is a necessity for getting a job as a data analyst, but they are not enough for growth.
 
-The Optimal Skill Matrix for Data Analysts reveals a highly structured market divided between foundational requirements and premium specializations. The x-axis represents how often a skill is requested, while the y-axis (and vertical bars) represent the calibrated domestic salary range from the 25th to 75th percentiles.
-
-Foundational querying and programming languages—specifically SQL and Python—dominate the far right of the matrix. Their market share proves they are absolute prerequisites for entering the analytics field in India. However, because they are universally expected, they hover strictly around the market median for compensation.
-
-The true financial leverage for a Data Analyst lies in the Business Intelligence and data modeling track. Tools like Power BI, Looker, and Tableau occupy the upper-left quadrant of the matrix. While they appear in fewer overall job postings than SQL, they command a significant salary premium. Organizations are willing to pay top-of-market rates for analysts who can bridge the gap between raw data extraction and visual executive storytelling. Aspiring analysts should secure their foundation in SQL, but their upward mobility and highest earning potential will dictate mastering DAX, data modeling, and enterprise dashboarding.
+However, the optimal point for a Data Analyst in India to maximize their career ROI is situated in the upper-middle quadrant. Power BI and Tableau represent this perfect blend. They maintain a healthy, reliable market demand (roughly 20% of postings) while simultaneously pulling the domestic salary ceiling up past ₹11L LPA. Niche tools like Looker might offer slightly higher pay, but their low market presence (pushed to the far left) makes them too risky to rely on as a core competency. Therefore, the most secure and lucrative strategy for an Indian Data Analyst is to build a "T-shaped" profile: establish a non-negotiable baseline in SQL and Excel for absolute market stability, and deeply specialize in Power BI or Tableau to command premium compensation.
 
 ### Strategic Analysis: Data Scientist Matrix
 <img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/a0cc4106-43ae-4f5b-b454-4df4bef7790e" />
 
+The Data Scientist matrix illustrates a much wider dispersion of tools, highlighting the harsh trade-off between hyper-specialization and job availability. In this landscape, Python is the undisputed baseline. Sitting far to the right, it is the fundamental language of the Indian Data Science ecosystem, offering unparalleled job security. 
 
+When evaluating the premium upper-left quadrant, we see highly lucrative AI frameworks like PyTorch and Keras, alongside cloud architecture like Azure. While these skills push the median salary past ₹16L LPA, their likelihood in job postings drops significantly. Chasing only the highest-paying AI tools is a risky strategy for early-to-mid career professionals, as the volume of available roles is highly restricted to mature tech hubs or specific MNCs. It is more lucrative, but time-consuming to gain proficient skills and makes the learning curve steeper with less availalble roles for transtion towards Machine Learning/AI/Deep Learning Specializations.
 
-Transitioning to the Data Scientist matrix, the market dynamics shift heavily toward advanced programming and scalable infrastructure.
+The true optimal point for maximizing both financial growth and job security lies slightly closer to the center of the matrix. Skills like Spark and AWS sit in an incredibly advantageous position. They offer a strong salary premium (averaging ₹14L–₹15L LPA) while maintaining a much safer market demand (20%–25%). For a Data Scientist aiming to secure their future in the Indian market, the most beneficial blend is anchoring heavily in Python and SQL to ensure consistent interview opportunities, while layering on big data frameworks (Spark) or cloud deployment (AWS). This specific combination bridges the gap between pure statistical modeling and data engineering, which is currently the most heavily recruited and highly compensated hybrid skill set in the country.
 
-Python separates itself entirely from the pack, acting as the undisputed core of the Indian Data Science ecosystem with massive market demand. Much like SQL for Analysts, Python is the non-negotiable entry ticket.
+#5. Challenges Faced and Personal Learnings:
 
-However, the compensation ceiling for Data Scientists is dictated by two highly specialized tracks visible in the upper-left premium quadrant. The first is the AI and Machine Learning track, where deep learning architectures like PyTorch, Keras, and TensorFlow dictate the highest median salaries in the entire data landscape. The second is the Cloud and Big Data orchestration track, highlighted by the strong financial positioning of Azure, AWS, and Spark. A Data Scientist looking to scale their career in India must eventually migrate away from general statistical modeling and commit to either deploying scalable cloud data infrastructure or engineering complex neural networks.
+The most significant hurdle encountered during this analysis was the inherent Missing Not At Random (MNAR) disclosure bias within the dataset. Because local domestic enterprises rarely publish salary bands publicly, the raw figures were heavily skewed by US-headquartered multinational corporations and foreign remote roles. Evaluating these raw USD figures directly would have drastically overstated realistic domestic salaries, rendering the entire matrix unusable for a local context. 
+
+When initial data filtering was applied to Indian job postings with published salaries, a glaring anomaly emerged:
+
+<img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/bfd3e035-26fe-452d-a3a5-4a5213734898" />
+
+USD salary bands were not reflective of the true earning potential for the given roles and skills.
+
+<img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/20eee5d7-a6f4-433f-983a-febd02713839" />
+
+Following adjustments were attempted:
+- 1. Filtered out remote roles (job_work_from_home == False) to isolate domestic jobs. However the dataset collapsed to a single data point (sql) due to extreme sample sparsity and hard filtering removed valid hybrid and onsite listings that published explicit salaries.
+  
+  <img width="928" height="568" alt="image" src="https://github.com/user-attachments/assets/1120f09f-35bf-49c6-85a0-97230f7a0a8d" />
+
+- 2. Even adjusting for PPP, the data was not in line with actual job posting bands in INR as per domain knowledge and indian job posting boards. The raw dataset suffered from severe Missing Not At Random (MNAR) bias as many Companies in India had not properly disclosed explicit numeric salary ranges in public job listings, opting for standard "As per industry standards" text. On the other hand, foreign companies/MNCs frequently publish explicit USD ranges ($80K–$180K USD).
+- 3. Taking an unweighted median of disclosed salaries created an absurd baseline that reflected global remote payouts rather than domestic Indian market realities.
+- 4. Replaced hard categorical filters with mathematical outlier bounds on log-transformed salaries (y=ln(x)). The formula used included:
+
+Upper Bound 
+log = Q3 log +(1.0 × IQR log)
+This was successful, trimming extreme $180K+ USD foreign remote outliers while preserving 100% of the underlying skill distribution across the domestic pool.
+
+Finally, through experimentation an approach to normalize the salary ranges with calibrated PPP and domestic market conversion ratio was developed and iteratively refined. By integrating AI-driven insights to challenge and calibrate the Purchasing Power Parity (PPP) and domestic market parity ratios, the analysis successfully mapped international benchmarks to accurate domestic INR compensation bands. This iterative process of leveraging AI to refine statistical assumptions was critical in transforming distorted, raw global data into a reliable, business-ready market matrix.
+
+The result is the final output for the Data Analyst Optimal Matrix for example now reflecting actual values
+
+<img width="1289" height="790" alt="image" src="https://github.com/user-attachments/assets/3712a95d-8ed4-4b40-b741-5319f0b22e75" />
+
+## Learnings:
+ From this project, I practiced and demonstrated end-to-end data analytics by 
+1. Writing production-style Python Scripts and  complete scripts handling date-time functions and data type conversions for temporal analysis.
+2. Unpacking lists and using lambda functions for custom data manipulation and analysis.
+3. Executing data cleaning, de-duplication, null imputation, and field data type changes to ensure data usability.
+4. Utilizing Pandas dataframes, pivot tables, multi-metric aggregations, and grouped data frames.
+5. Applying economic and statistical methods for realistic views adjusted for local market contexts over global metrics.
+6. Utilizing Seaborn and Matplotlib to perform complex data analysis tasks and create clear visualizations.
+
