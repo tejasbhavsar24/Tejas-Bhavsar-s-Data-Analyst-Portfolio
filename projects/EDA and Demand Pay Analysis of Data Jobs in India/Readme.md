@@ -11,6 +11,7 @@
   - [Skill Pay vs. Demand Trade-offs](#43-skill-pay-vs-demand-trade-offs)
   - [Role-wise Optimal Skill-Matrix](#44-role-wise-optimal-skill-matrix)
 - [Challenges Faced and Personal Learnings](#5-challenges-faced-and-personal-learnings)
+- [Conlusion](#6-Conclusion)
 
 ---
 
