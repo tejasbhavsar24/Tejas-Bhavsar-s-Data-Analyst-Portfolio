@@ -46,7 +46,7 @@ In this project, various Python libraries and custom transformations are utilize
   - `seaborn`: Advanced statistical visuals including violin distribution plots and color-palette bar charts.
 
 - **Generative AI**
-  - `Gemini`: Utilized for Chain-of-Thought (CoT) prompting to model and normalize US Salary bands not accounting for India Purchasing Power Parity with a multi-stage econometric salary calibrations.
+  - `Gemini`: Utilized for Chain-of-Thought (CoT) prompting to model and normalize US Salary bands to account for Indian Purchasing Power Parity and local domestic salary bands with a multi-stage salary calibration model.
     
 ### **Key Assumptions:**
 
