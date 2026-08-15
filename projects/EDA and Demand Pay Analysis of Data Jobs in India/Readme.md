@@ -464,5 +464,5 @@ The result is the final output for the Data Analyst Optimal Matrix for example n
 6. Utilizing Seaborn and Matplotlib to perform complex data analysis tasks and create clear visualizations.
 
 
-# Conclusion
+# 6. Conclusion
 This project is about navigating the Indian data job market, exploring data, analysis of time and demand-pay dimensions, resolving MNAR selection bias and normalizing global salary data into accurate domestic compensation bands. The analysis done in the project reveals that for Data Analysts, SQL and Excel guarantee baseline employability, but true financial leverage stems from mastering Power BI or Tableau to command premium salaries above ₹8 LPA while maintaining strong job availability. For Data Scientists, Python and SQL serve as the non-negotiable foundation, whereas scaling past median pay requires specializing in Cloud and Big Data platforms like AWS and Spark or Deep Learning frameworks like PyTorch. Ultimately, maximizing career ROI in India depends on building a T-shaped skill profile that pairs deep baseline querying with high-leverage visual storytelling or having knowledge of ML/AI modelling.
